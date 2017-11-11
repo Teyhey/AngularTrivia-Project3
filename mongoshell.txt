@@ -1,0 +1,1 @@
+mongo ds243325.mlab.com:43325/cisc474 -u <dbuser> -p <dbpassword>
