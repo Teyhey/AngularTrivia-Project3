@@ -30,11 +30,24 @@ li a {
 li a:hover {
     background-color: #111;
 }
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+.pref {
+  background-color: rgb(76, 163, 175);
+}
+
 </style>
 </head>
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
+      
 
 <nav class="navbar-wrapper navbar-default navbar-fixed-top navbar-static-top" role="navigation">
   <div class="container">
@@ -50,14 +63,21 @@ li a:hover {
             <a routerLink="opentdb/questions">Questions</a>
           </li>
           <li routerLinkActive='active'>
-            <a>Begin</a>
+            <a routerLink="login"
+            onclick="document.getElementById('id01').style.display='block'">Login</a>
           </li>
+          <li routerLinkActive='active'
+              style="float:right">
+              <a routerLink="preferences"
+              class="pref"
+              >Preferences</a>
+            </li>
         </ul>
     </div>
   </div>
 </nav>
 
-<img alt="Logo" src="http://www.redoxygen.com/desktop-texting/wp-content/uploads/2013/11/Trivia.png"  width="250" height="50" class="center-logo">
+<img alt="Logo" src="http://www.redoxygen.com/desktop-texting/wp-content/uploads/2013/11/Trivia.png"  width="250" height="75" class="center-logo">
 
 
 

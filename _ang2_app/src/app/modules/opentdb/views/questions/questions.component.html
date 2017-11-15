@@ -91,18 +91,11 @@
   
   .button1 {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  }
+}
 
   .button2:hover {
       box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   }
-
-  .button-answer {
-    width: 15%;
-    height: 2em;
-  }
-
-
 
   div.card {
   width: 250px;
@@ -175,26 +168,23 @@ div.container {
   <p>Click 'New Question' to get a question of any difficulty or category.</p>
   <p>Use the buttons select a specific difficulty and category.</p>
     <br>
-    <button class="button-3 button1" (click)="onTestGet(); show = true;">New Question</button>
+    <button class="button-3 button1" (click)="onTestGet()">New Question</button>
     <br>
     <br>
-    <script>var show = false;</script>
-    <div style="font-size: larger" [hidden]="!show">
-      <div style="font-weight: bold;">Question :</div>
-      <div id="question" [innerHTML]="getQuestion"></div>
-      <br>
-      <button class="button-answer" (click)="onAnswerclick('1')"> <div [innerHTML]="Spot1"></div> </button>
-      <button class="button-answer" (click)="onAnswerclick('2')"> <div [innerHTML]="Spot2"></div> </button>
-      <button class="button-answer" (click)="onAnswerclick('3')"> <div [innerHTML]="Spot3"></div> </button>
-      <button class="button-answer" (click)="onAnswerclick('4')"> <div [innerHTML]="Spot4"></div> </button>            
-      <br>
-      <br>    
-      <div style="font-style:italic; width: 80%;" [innerHTML]="showAnswer"></div>
-      <div style="text-align: center; margin-right: 50%;"> <!-- to get right alignment with centering outside -->
-        <p style="text-align: right;">Questions Completed: <span style="font-weight: bold;">{{questionsCompleted}}</span></p>
-        <p style="text-align: right;">Score: <span style="font-weight: bold;">{{Score}}</span></p>
-      </div>
-    </div>    
+    <div style="font-weight: bold;">Question :</div>
+    <div [innerHTML]="getQuestion"></div>
+    <br>
+    <button (click)="onAnswerclick('1')"> <div [innerHTML]="Spot1"></div> </button>
+    <button (click)="onAnswerclick('2')"> <div [innerHTML]="Spot2"></div> </button>
+    <button (click)="onAnswerclick('3')"> <div [innerHTML]="Spot3"></div> </button>
+    <button (click)="onAnswerclick('4')"> <div [innerHTML]="Spot4"></div>  </button>
+    <br>
+    <br>    
+    <div style="font-style:italic;" [innerHTML]="showAnswer"></div>
+    <div style="text-align: center; margin-right: 50%;"> <!-- to get right alignment with centering outside -->
+      <p style="text-align: right;">Questions Completed: <span style="font-weight: bold;">{{questionsCompleted}}</span></p>
+      <p style="text-align: right;">Score: <span style="font-weight: bold;">{{Score}}</span></p>
+    </div>
     <br>
     <br>
     
