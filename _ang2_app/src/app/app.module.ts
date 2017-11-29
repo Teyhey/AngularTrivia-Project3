@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { OrderBy } from './orderBy.pipe';
 import { LoginComponent } from './views/login/login.component';
+import { PreferencesComponent } from './views/preferences/preferences.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { LoginComponent } from './views/login/login.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
+    PreferencesComponent,
     OrderBy
   ],
   imports: [

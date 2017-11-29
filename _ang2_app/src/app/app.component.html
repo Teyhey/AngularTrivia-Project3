@@ -41,6 +41,23 @@ li a:hover:not(.active) {
 .pref {
   background-color: rgb(76, 163, 175);
 }
+.chip {
+    display: inline-block;
+    padding: 0 50px;
+    height: 25px;
+    font-size: 16px;
+    line-height: 25px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.chip img {
+    float: left;
+    margin: 0 10px 0 -50px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
 
 </style>
 </head>
@@ -66,11 +83,12 @@ li a:hover:not(.active) {
             <a routerLink="login"
             onclick="document.getElementById('id01').style.display='block'">Login</a>
           </li>
-          <li routerLinkActive='active'
-              style="float:right">
-              <a routerLink="preferences"
-              class="pref"
-              >Preferences</a>
+          <li routerLinkActive='active'style="float:right">
+              <a routerLink="preferences" >
+                  <div class="chip">
+                <img src="https://www.w3schools.com/w3css/img_avatar4.png" alt="Person" width="48" height="48">
+              Name
+              </div> </a>
             </li>
         </ul>
     </div>
