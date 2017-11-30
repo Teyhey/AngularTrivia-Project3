@@ -7,7 +7,7 @@ import { HomeComponent } from './views/home/home.component';
 import { OrderBy } from './orderBy.pipe';
 import { LoginComponent } from './views/login/login.component';
 import { PreferencesComponent } from './views/preferences/preferences.component';
-
+import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import { PreferencesComponent } from './views/preferences/preferences.component'
     HomeComponent,
     LoginComponent,
     PreferencesComponent,
+    ScoreboardComponent,
     OrderBy
   ],
   imports: [
