@@ -25,6 +25,8 @@ export class QuestionsComponent /*implements OnInit*/ {
   questionsCompleted: number;
   category = 0;
   difficulty = '';
+  timer = 10;
+  timerID;
 
   // Note, Booleans are not called, multiple choice only for this test, so can safely call the array of inccorect for 0,1,2
   constructor (private httpService: OpenTDBService) {}
@@ -101,12 +103,23 @@ export class QuestionsComponent /*implements OnInit*/ {
               () => console.log('Finished')
       );
   }
+
+
+  startTimer() {
+    this.timerID = setInterval(function(){
+        this.timer = this.timer - 1;
+        if (this.timer <= 0) {
+            this.timerID.clearInterval();
+        }
+    }, 1000);
+  }
+
   setDifficulty(difficulty: string) {
       this.difficulty = difficulty;
   }
   setCategory(category: number) {
       this.category = category;
-  } 
+  }
 
   alertPop() {
     var x = document.getElementById("snackbar")
@@ -137,6 +150,8 @@ export class QuestionsComponent /*implements OnInit*/ {
       }
       this.showAnswer = '--- ' + this.getAnswer + ' ---';
   }
+
+
 
 /*
   questions: any[] = [ ];

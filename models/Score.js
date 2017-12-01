@@ -6,7 +6,9 @@ var ScoreSchema = new mongoose.Schema({
     objectId    : ObjectId,
     username    : String,
     score       : Number,
-    date        : Date
+    date        : Date,
+    category    : String,
+    difficulty  : String
 });
 
 module.exports = mongoose.model("Score",ScoreSchema);

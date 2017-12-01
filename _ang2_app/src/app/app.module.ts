@@ -7,15 +7,16 @@ import { HomeComponent } from './views/home/home.component';
 import { OrderBy } from './orderBy.pipe';
 import { LoginComponent } from './views/login/login.component';
 import { TaxiInteriorComponent } from './views/taxi-interior/taxi-interior.component';
-
-
+import { PreferencesComponent } from './views/preferences/preferences.component';
+import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    OrderBy,
-    TaxiInteriorComponent
+    LoginComponent,,
+    PreferencesComponent,
+    ScoreboardComponent,
+    OrderBy
   ],
   imports: [
     BrowserModule,
