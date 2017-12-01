@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { OrderBy } from './orderBy.pipe';
 import { LoginComponent } from './views/login/login.component';
+import { TaxiInteriorComponent } from './views/taxi-interior/taxi-interior.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { LoginComponent } from './views/login/login.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    OrderBy
+    OrderBy,
+    TaxiInteriorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,183 @@
+/*
+relative position of things inside their respective containers:
+when we change screen size, the containers are what move and scale/stretch,
+but the elements in them stay relatively positioned inside the container
+the same way.
+*/
+
+.myBlock {
+    display: block;
+    position: relative;
+}
+
+.myInlineBlock {
+    display: inline-block;
+    position: absolute;
+}
+
+.myContainer {
+    position: relative;
+}
+
+.streetView {
+    z-index: 1;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 65%;
+}
+
+.dashboard {
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.speechBubble {
+    z-index: 3;
+    position: absolute;
+    top: 0px;
+    left: 25%;
+    width: 60%;
+    height: 45%;
+}
+
+.fareCounter {
+    z-index: 2;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.moneyAmount {
+    color: lightgreen;
+    font-family: 'Orbitron';    
+    font-size: 300%;
+    text-align: right;
+    font-stretch: expanded;
+
+    position: absolute;
+    z-index: 3;    
+    right: 10%;
+    bottom: 10%;
+}
+
+.strikes {
+    color: red;
+    font-family: 'Orbitron';    
+    font-size: 250%;
+
+    position: absolute;
+    z-index: 3;    
+    top: 6%;
+}
+
+.strike3 {
+    right: 23%;
+}
+
+.strike2 {
+    right: 45%;
+}
+
+.strike1 {
+    right: 67%;
+}
+
+.mapContainer {
+    position: relative;
+    height: 25vh;
+}
+
+.map {
+    position: absolute;
+    z-index: 1;
+    width: 100%; /*big as possible without being outside parent*/
+    height: 100%;
+}
+
+.mapDestination {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: lightskyblue;
+    text-shadow: 3%, 3%, purple;
+    font-size: 125%;
+    text-align: center;
+    
+    position: absolute; 
+    z-index: 2;   
+
+    /*center in parent*/
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mapTimer {
+    color: rgb(93, 231, 93);
+    background-color: rgba(255, 255, 255, 0.3);
+    font-family: 'Orbitron';
+    font-size: 175%;
+    text-align: center;
+
+    position: absolute;
+    z-index: 3;    
+    top: 12%;  
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.panel {
+
+}
+
+.question-panel {
+
+}
+
+.answer-panel {
+
+}
+
+.player-panel {
+    
+}
+
+ 
+.mobile-version {
+    display: block;
+    position: relative;
+}
+.desktop-version {
+    display: none;
+}
+
+.mobile-version .bgContainer {
+    position: relative;        
+    width: 100%;
+    height: 25vh;
+}
+
+.mobile-version .fareAndMapContainer {
+    position: relative;
+    width: 100%;
+    height: 25vh;
+}
+
+.fareContainer {
+    position: relative;
+    height: 100%;
+    width: 50vw;
+}
+
+.mobile-version .mapContainer {
+    position: absolute;
+    right: 0%;
+    width: 25vw; /*should be equal to 30%*/
+    height: 25vw; /*same units (1/100s of viewport width) so should be square*/
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
