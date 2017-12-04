@@ -104,14 +104,18 @@ export class QuestionsComponent /*implements OnInit*/ {
       );
   }
 
-
   startTimer() {
+    const obj=this;
     this.timerID = setInterval(function(){
-        this.timer = this.timer - 1;
-        if (this.timer <= 0) {
-            this.timerID.clearInterval();
+        console.log(obj.timer);
+        obj.timer = obj.timer - 1;
+        console.log(obj.timer);
+        if (obj.timer <= 0) {
+            clearInterval(obj.timerID);
         }
     }, 1000);
+
+    console.log('called fn');
   }
 
   setDifficulty(difficulty: string) {
