@@ -13,7 +13,7 @@ import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,,
+    LoginComponent,
     PreferencesComponent,
     ScoreboardComponent,
     OrderBy
