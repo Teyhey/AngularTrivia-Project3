@@ -125,8 +125,17 @@ div.container {
 <div style="text-align:center">
   <p>Click 'New Question' to get a question of any difficulty or category.</p>
   <p>Use the buttons select a specific difficulty and category.</p>
+  
+  <select name="drop1" onchange="setDifficulty(this);">
+    <option value=''>Any</option>
+    <option value='easy'>Easy</option>
+    <option value='medium'>Medium</option>
+    <option value='hard'>Hard</option>
+  </select>
+  <p>Chosen Difficulty: {{difficulty}}</p>
+  
     <br>
-    <button class="button-3 button1" (click)="onTestGet(); startTimer();">New Question</button>
+    <button class="button-3 button1" id = "startGame" (click)="onTestGet(); startTimer(); clearPreviousData();">Begin Game</button>
     <br>
     <br>
     <div style="font-weight: bold;">Question :</div>
@@ -147,18 +156,8 @@ div.container {
     <br>
     <p>{{timer}}</p>
     
-
-<div id="snackbar">Chosen Difficulty: {{difficulty}}</div>
-
-<select name="drop1" onchange="setDifficulty(this.value);">
-  <option value=''>Any</option>
-  <option value='easy'>Easy</option>
-  <option value='medium'>Medium</option>
-  <option value='hard'>Hard</option>
-</select>
-<p>{{difficulty}}</p>
-
 <!--
+<div id="snackbar">Chosen Difficulty: {{difficulty}}</div>
 <button class="button-2 button2" (click)="setDifficulty('')" (click)="alertPop()" onclick="myFunction()"> Any difficulty </button>
 <button class="button-2 button2" (click)="setDifficulty('easy')" (click)="alertPop()"> Easy </button>
 <button class="button-2 button2" (click)="setDifficulty('medium')" (click)="alertPop()"> Medium </button>

@@ -23,10 +23,12 @@ export class QuestionsComponent /*implements OnInit*/ {
   Spot4: string;
   Score: number;
   questionsCompleted: number;
+  questionAnswered = false;
   category = 0;
   difficulty = '';
   timer = 10;
   timerID;
+  ingame? = false;
 
   // Note, Booleans are not called, multiple choice only for this test, so can safely call the array of inccorect for 0,1,2
   constructor (private httpService: OpenTDBService) {}
@@ -104,14 +106,29 @@ export class QuestionsComponent /*implements OnInit*/ {
       );
   }
 
+  clearPreviousData() {
+     this.questionsCompleted = 0;
+     this.Score = 0;
+     document.getElementById('startGame').style.visibility = 'hidden';
+  }
+
   startTimer() {
-    const obj=this;
+    this.timer = 10;
+    this.questionAnswered = false;
+    const obj = this;
     this.timerID = setInterval(function(){
-        console.log(obj.timer);
-        obj.timer = obj.timer - 1;
-        console.log(obj.timer);
-        if (obj.timer <= 0) {
-            clearInterval(obj.timerID);
+        if (obj.timer <= 0 || obj.questionAnswered) {
+            if (obj.questionsCompleted === 10 ) {
+                clearInterval(obj.timerID);
+                document.getElementById('startGame').style.visibility = 'visible';
+            } else {
+                clearInterval(obj.timerID);
+                obj.questionsCompleted += 1;
+                obj.onTestGet();
+                obj.startTimer();
+            }
+        } else {
+            obj.timer = obj.timer - 1;
         }
     }, 1000);
 
@@ -135,22 +152,23 @@ export class QuestionsComponent /*implements OnInit*/ {
       if (this.showAnswer === '') {
           if (spot === '1') {
               if (this.getAnswer === this.Spot1) {
-                  this.Score += 1;
+                  this.Score += this.timer * 10;
               }
           } else if (spot === '2') {
               if (this.getAnswer === this.Spot2) {
-                  this.Score += 1;
+                  this.Score += this.timer * 10;
               }
           } else if (spot === '3') {
               if (this.getAnswer === this.Spot3) {
-                  this.Score += 1;
+                 this.Score += this.timer * 10;
               }
           } else if (spot === '4') {
               if (this.getAnswer === this.Spot4) {
-                  this.Score += 1;
+                 this.Score += this.timer * 10;
               }
           }
           this.questionsCompleted += 1;
+          this.questionAnswered = true;
       }
       this.showAnswer = '--- ' + this.getAnswer + ' ---';
   }
