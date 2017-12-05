@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { OrderBy } from './orderBy.pipe';
 import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 import { TaxiInteriorComponent } from './views/taxi-interior/taxi-interior.component';
 import { PreferencesComponent } from './views/preferences/preferences.component';
 import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
@@ -14,6 +15,7 @@ import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
+    RegisterComponent,
     PreferencesComponent,
     ScoreboardComponent,
     OrderBy
