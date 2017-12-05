@@ -28,7 +28,10 @@ export class QuestionsComponent /*implements OnInit*/ {
   difficulty = '';
   timer = 10;
   timerID;
+  viewanswertimer;
+  viewanswertime = 5;
   ingame? = false;
+  totalquestions = 10;
 
   // Note, Booleans are not called, multiple choice only for this test, so can safely call the array of inccorect for 0,1,2
   constructor (private httpService: OpenTDBService) {}
@@ -118,14 +121,15 @@ export class QuestionsComponent /*implements OnInit*/ {
     const obj = this;
     this.timerID = setInterval(function(){
         if (obj.timer <= 0 || obj.questionAnswered) {
-            if (obj.questionsCompleted === 10 ) {
+            if (obj.questionsCompleted === obj.totalquestions ) {
                 clearInterval(obj.timerID);
                 document.getElementById('startGame').style.visibility = 'visible';
             } else {
                 clearInterval(obj.timerID);
-                obj.questionsCompleted += 1;
-                obj.onTestGet();
-                obj.startTimer();
+                if (!obj.questionAnswered) {
+                    obj.questionsCompleted += 1;
+                }
+                obj.delayTimer();
             }
         } else {
             obj.timer = obj.timer - 1;
@@ -135,11 +139,35 @@ export class QuestionsComponent /*implements OnInit*/ {
     console.log('called fn');
   }
 
+  delayTimer() {
+      this.viewanswertime = 5;
+      const obj = this;
+      this.viewanswertimer = setInterval(function(){
+          if (obj.viewanswertime <= 0) {
+            clearInterval(obj.viewanswertimer);
+            obj.onTestGet();
+            obj.startTimer();
+          } else {
+            obj.viewanswertime = obj.viewanswertime - 1;
+          }
+      }, 1000);
+  }
+
   setDifficulty(difficulty: string) {
       this.difficulty = difficulty;
   }
+
+  setDifficultyDrop(value) {
+      console.log('called difficulty change');
+    this.difficulty = value;
+}
+
   setCategory(category: number) {
       this.category = category;
+  }
+
+  setTotalQuestions(amount: number) {
+      this.totalquestions = amount;
   }
 
   alertPop() {

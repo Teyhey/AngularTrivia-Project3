@@ -126,12 +126,13 @@ div.container {
   <p>Click 'New Question' to get a question of any difficulty or category.</p>
   <p>Use the buttons select a specific difficulty and category.</p>
   
-  <select name="drop1" onchange="setDifficulty(this);">
-    <option value=''>Any</option>
-    <option value='easy'>Easy</option>
-    <option value='medium'>Medium</option>
-    <option value='hard'>Hard</option>
+  <select id="difficultyDrop" onchange="setDifficultyDrop(this.value)">
+    <option value="">Any</option>
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
   </select>
+
   <p>Chosen Difficulty: {{difficulty}}</p>
   
     <br>
@@ -192,6 +193,7 @@ div.container {
 <button class="button button2" (click)="setCategory(32)"> Entertainment: Cartoon & Animations </button>
 <p></p>
 </div>
+
 
 
 
