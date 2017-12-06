@@ -9,22 +9,25 @@ import { QuestionsComponent } from './views/questions/questions.component';
 import { CategoriesComponent } from './views/categories/categories.component';
 import { CategoryPopupComponent } from './views/categories/category-popup/category-popup.component';
 import { OpenTDBService } from './opentdb.service';
+import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'categories'},
   {path: 'categories', component: CategoriesComponent},
-  {path: 'questions', component: QuestionsComponent}
+  {path: 'questions', component: QuestionsComponent},
+  {path: 'scoreboard', component: ScoreboardComponent},
 ];
 
-export function openTDBfactory(http: Http){
+export function openTDBfactory(http: Http) {
   return new OpenTDBService(http, 'https://opentdb.com/');
 }
 
 @NgModule({
-  declarations:[
+  declarations: [
     CategoriesComponent,
     QuestionsComponent,
-    CategoryPopupComponent
+    CategoryPopupComponent,
+    ScoreboardComponent,
   ],
   imports: [
     CommonModule,
