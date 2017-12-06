@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from 'ng2-bootstrap-modal';
+//import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-scoreboard',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScoreboardComponent implements OnInit {
 
-  constructor() { }
+  usertest;
+  scoretest;
+
+  constructor() {}
 
   ngOnInit() {
+    /*
+    this.triviaservice.getTopScores().subscribe(
+      data => {
+        this.usertest = (data['result']['username']);
+        this.scoretest = (data['result']['score']);
+      },
+      error => alert(error),
+      () => console.log('Finished')
+
+    );
+    */
   }
 
 }
