@@ -29,9 +29,10 @@ export class QuestionsComponent /*implements OnInit*/ {
   timer = 10;
   timerID;
   viewanswertimer;
-  viewanswertime = 5;
+  viewanswertime = 2;
   ingame? = false;
   totalquestions = 10;
+  private _difficultydrop: string;
 
   // Note, Booleans are not called, multiple choice only for this test, so can safely call the array of inccorect for 0,1,2
   constructor (private httpService: OpenTDBService) {}
@@ -113,6 +114,9 @@ export class QuestionsComponent /*implements OnInit*/ {
      this.questionsCompleted = 0;
      this.Score = 0;
      document.getElementById('startGame').style.visibility = 'hidden';
+     document.getElementById('difficultyDrop').style.visibility = 'hidden';
+     document.getElementById('catDrop').style.visibility = 'hidden';
+     document.getElementById('totalQuestionDrop').style.visibility = 'hidden';
   }
 
   startTimer() {
@@ -124,6 +128,9 @@ export class QuestionsComponent /*implements OnInit*/ {
             if (obj.questionsCompleted === obj.totalquestions ) {
                 clearInterval(obj.timerID);
                 document.getElementById('startGame').style.visibility = 'visible';
+                document.getElementById('difficultyDrop').style.visibility = 'visible';
+                document.getElementById('catDrop').style.visibility = 'visible';
+                document.getElementById('totalQuestionDrop').style.visibility = 'visible';
             } else {
                 clearInterval(obj.timerID);
                 if (!obj.questionAnswered) {
@@ -140,7 +147,7 @@ export class QuestionsComponent /*implements OnInit*/ {
   }
 
   delayTimer() {
-      this.viewanswertime = 5;
+      this.viewanswertime = 2;
       const obj = this;
       this.viewanswertimer = setInterval(function(){
           if (obj.viewanswertime <= 0) {
@@ -156,11 +163,6 @@ export class QuestionsComponent /*implements OnInit*/ {
   setDifficulty(difficulty: string) {
       this.difficulty = difficulty;
   }
-
-  setDifficultyDrop(value) {
-      console.log('called difficulty change');
-    this.difficulty = value;
-}
 
   setCategory(category: number) {
       this.category = category;
