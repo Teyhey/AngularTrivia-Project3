@@ -23,10 +23,16 @@ export class QuestionsComponent /*implements OnInit*/ {
   Spot4: string;
   Score: number;
   questionsCompleted: number;
+  questionAnswered = false;
   category = 0;
   difficulty = '';
   timer = 10;
   timerID;
+  viewanswertimer;
+  viewanswertime = 2;
+  ingame? = false;
+  totalquestions = 10;
+  private _difficultydrop: string;
 
   // Note, Booleans are not called, multiple choice only for this test, so can safely call the array of inccorect for 0,1,2
   constructor (private httpService: OpenTDBService) {}
@@ -104,21 +110,66 @@ export class QuestionsComponent /*implements OnInit*/ {
       );
   }
 
+  clearPreviousData() {
+     this.questionsCompleted = 0;
+     this.Score = 0;
+     document.getElementById('startGame').style.visibility = 'hidden';
+     document.getElementById('difficultyDrop').style.visibility = 'hidden';
+     document.getElementById('catDrop').style.visibility = 'hidden';
+     document.getElementById('totalQuestionDrop').style.visibility = 'hidden';
+  }
 
   startTimer() {
+    this.timer = 10;
+    this.questionAnswered = false;
+    const obj = this;
     this.timerID = setInterval(function(){
-        this.timer = this.timer - 1;
-        if (this.timer <= 0) {
-            this.timerID.clearInterval();
+        if (obj.timer <= 0 || obj.questionAnswered) {
+            if (obj.questionsCompleted === obj.totalquestions ) {
+                clearInterval(obj.timerID);
+                document.getElementById('startGame').style.visibility = 'visible';
+                document.getElementById('difficultyDrop').style.visibility = 'visible';
+                document.getElementById('catDrop').style.visibility = 'visible';
+                document.getElementById('totalQuestionDrop').style.visibility = 'visible';
+            } else {
+                clearInterval(obj.timerID);
+                if (!obj.questionAnswered) {
+                    obj.questionsCompleted += 1;
+                }
+                obj.delayTimer();
+            }
+        } else {
+            obj.timer = obj.timer - 1;
         }
     }, 1000);
+
+    console.log('called fn');
+  }
+
+  delayTimer() {
+      this.viewanswertime = 2;
+      const obj = this;
+      this.viewanswertimer = setInterval(function(){
+          if (obj.viewanswertime <= 0) {
+            clearInterval(obj.viewanswertimer);
+            obj.onTestGet();
+            obj.startTimer();
+          } else {
+            obj.viewanswertime = obj.viewanswertime - 1;
+          }
+      }, 1000);
   }
 
   setDifficulty(difficulty: string) {
       this.difficulty = difficulty;
   }
+
   setCategory(category: number) {
       this.category = category;
+  }
+
+  setTotalQuestions(amount: number) {
+      this.totalquestions = amount;
   }
 
   alertPop() {
@@ -131,22 +182,23 @@ export class QuestionsComponent /*implements OnInit*/ {
       if (this.showAnswer === '') {
           if (spot === '1') {
               if (this.getAnswer === this.Spot1) {
-                  this.Score += 1;
+                  this.Score += this.timer * 10;
               }
           } else if (spot === '2') {
               if (this.getAnswer === this.Spot2) {
-                  this.Score += 1;
+                  this.Score += this.timer * 10;
               }
           } else if (spot === '3') {
               if (this.getAnswer === this.Spot3) {
-                  this.Score += 1;
+                 this.Score += this.timer * 10;
               }
           } else if (spot === '4') {
               if (this.getAnswer === this.Spot4) {
-                  this.Score += 1;
+                 this.Score += this.timer * 10;
               }
           }
           this.questionsCompleted += 1;
+          this.questionAnswered = true;
       }
       this.showAnswer = '--- ' + this.getAnswer + ' ---';
   }
