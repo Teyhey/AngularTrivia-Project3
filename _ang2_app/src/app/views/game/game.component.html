@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <style>
+        .funkyradio div {
+            clear: both;
+            overflow: hidden;
+        }
+
+        .funkyradio label {
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid #D1D3D4;
+            font-weight: normal;
+        }
+
+        .funkyradio input[type="radio"]:empty,
+        .funkyradio input[type="checkbox"]:empty {
+            display: none;
+        }
+
+        .funkyradio input[type="radio"]:empty~label,
+        .funkyradio input[type="checkbox"]:empty~label {
+            position: relative;
+            line-height: 2.5em;
+            text-indent: 3.25em;
+            margin-top: 2em;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .funkyradio input[type="radio"]:empty~label:before,
+        .funkyradio input[type="checkbox"]:empty~label:before {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            width: 2.5em;
+            background: #D1D3D4;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .funkyradio input[type="radio"]:hover:not(:checked)~label,
+        .funkyradio input[type="checkbox"]:hover:not(:checked)~label {
+            color: #888;
+        }
+
+        .funkyradio input[type="radio"]:hover:not(:checked)~label:before,
+        .funkyradio input[type="checkbox"]:hover:not(:checked)~label:before {
+            content: '\2714';
+            text-indent: .9em;
+            color: #C2C2C2;
+        }
+
+        .funkyradio input[type="radio"]:checked~label,
+        .funkyradio input[type="checkbox"]:checked~label {
+            color: #777;
+        }
+
+        .funkyradio input[type="radio"]:checked~label:before,
+        .funkyradio input[type="checkbox"]:checked~label:before {
+            content: '\2714';
+            text-indent: .9em;
+            color: #333;
+            background-color: #ccc;
+        }
+
+        .funkyradio input[type="radio"]:focus~label:before,
+        .funkyradio input[type="checkbox"]:focus~label:before {
+            box-shadow: 0 0 0 3px #999;
+        }
+
+        .funkyradio-default input[type="radio"]:checked~label:before,
+        .funkyradio-default input[type="checkbox"]:checked~label:before {
+            color: #333;
+            background-color: #ccc;
+        }
+
+        .funkyradio-primary input[type="radio"]:checked~label:before,
+        .funkyradio-primary input[type="checkbox"]:checked~label:before {
+            color: #fff;
+            background-color: #337ab7;
+        }
+
+        .funkyradio-success input[type="radio"]:checked~label:before,
+        .funkyradio-success input[type="checkbox"]:checked~label:before {
+            color: #fff;
+            background-color: #5cb85c;
+        }
+
+        .funkyradio-danger input[type="radio"]:checked~label:before,
+        .funkyradio-danger input[type="checkbox"]:checked~label:before {
+            color: #fff;
+            background-color: #d9534f;
+        }
+
+        .funkyradio-warning input[type="radio"]:checked~label:before,
+        .funkyradio-warning input[type="checkbox"]:checked~label:before {
+            color: #fff;
+            background-color: #f0ad4e;
+        }
+
+        .funkyradio-info input[type="radio"]:checked~label:before,
+        .funkyradio-info input[type="checkbox"]:checked~label:before {
+            color: #fff;
+            background-color: #5bc0de;
+        }
+    </style>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+    <div class="container-fluid">
+	<div class="row">
+		<div style="inline-block">
+            <img class="rearView" src="assets/images/rearView.png">
+        </div>
+		<div class="fareAndMapContainer">
+			<div class="mapContainer myDynamic">
+                <img class="map" src="assets/images/map.png">
+                <span class="mapTimer">15:30</span>
+                <span class="mapDestination">Way Downtown</span>
+            </div>
+            <div class="fareContainer myDynamic">
+                <span class="strike1 strikes">X</span>
+                <span class="strike2 strikes">X</span>
+                <span class="strike3 strikes">X</span>
+                <span class="moneyAmount">$10000.00</span>
+                <img class="fareCounter" src="assets/images/fareCounterSmall.png">
+            </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="panel question-panel myBlock">
+            <p>
+                Current Question: A question...?
+            </p>
+        </div>
+	</div>
+	<div class="row">
+		<div class="panel answer-panel myBlock">
+            <div class="funkyradio">
+                <div class="funkyradio-default">
+                    <input type="radio" name="radio" id="radio1" />
+                    <label for="radio1">First Answer</label>
+                </div>
+                <div class="funkyradio-primary">
+                    <input type="radio" name="radio" id="radio2" />
+                    <label for="radio2">Second Answer</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="radio" name="radio" id="radio3" />
+                    <label for="radio3">Third Answer</label>
+                </div>
+                <div class="funkyradio-danger">
+                    <input type="radio" name="radio" id="radio4" />
+                    <label for="radio4">Fourth Answer</label>
+                </div>
+            </div>
+        </div>
+	</div>
+	<div class="row">
+		<div class="panel player-panel myBlock">
+            Player A's turn
+        </div>
+	</div>
+	</div>
+</body>
+
+</html>

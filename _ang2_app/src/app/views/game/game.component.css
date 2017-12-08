@@ -1,0 +1,110 @@
+/*
+relative position of things inside their respective containers:
+when we change screen size, the containers are what move and scale/stretch,
+but the elements in them stay relatively positioned inside the container
+the same way.
+*/
+
+.myDynamic {
+    
+}
+
+
+
+.fareAndMapContainer {
+	position: relative;
+	display: inline-block;
+}
+
+.mapContainer {
+	position: relative;
+	display: block;
+}
+
+.fareContainer {
+	position: relative;
+	display: block;
+	right: 0%;
+	margin: 0;
+}
+
+.moneyAmount {
+    color: lightgreen;
+    font-family: 'Orbitron';    
+    font-size: 300%;
+    text-align: right;
+    font-stretch: expanded;
+
+    position: absolute;
+    z-index: 3;    
+    right: 10%;
+    bottom: 10%;
+}
+
+.strikes {
+    color: red;
+    font-family: 'Orbitron';    
+    font-size: 250%;
+
+    position: absolute;
+    z-index: 3;    
+    top: 6%;
+}
+
+.strike3 {
+    right: 23%;
+}
+
+.strike2 {
+    right: 45%;
+}
+
+.strike1 {
+    right: 67%;
+}
+
+.mapDestination {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: lightskyblue;
+    text-shadow: 3%, 3%, purple;
+    font-size: 125%;
+    text-align: center;
+    
+    position: absolute; 
+    z-index: 2;   
+
+    /*center in parent*/
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mapTimer {
+    color: rgb(93, 231, 93);
+    background-color: rgba(255, 255, 255, 0.3);
+    font-family: 'Orbitron';
+    font-size: 175%;
+    text-align: center;
+
+    position: absolute;
+    z-index: 3;    
+    top: 12%;  
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.panel {
+
+}
+
+.question-panel {
+
+}
+
+.answer-panel {
+
+}
+
+.player-panel {
+    
+}

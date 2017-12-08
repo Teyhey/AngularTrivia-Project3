@@ -4,6 +4,7 @@ import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
 import { PreferencesComponent } from './views/preferences/preferences.component';
+import { GameComponent } from './views/game/game.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home',pathMatch: 'full'},
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'scoreboard', component: ScoreboardComponent},
   {path: 'preferences', component: PreferencesComponent},
+  {path: 'game', component: GameComponent},
   {path: 'opentdb', loadChildren: './modules/opentdb/opentdb.module#OpenTDBModule'},
 ];
 

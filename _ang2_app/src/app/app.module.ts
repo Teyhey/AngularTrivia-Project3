@@ -9,6 +9,7 @@ import { LoginComponent } from './views/login/login.component';
 import { TaxiInteriorComponent } from './views/taxi-interior/taxi-interior.component';
 import { PreferencesComponent } from './views/preferences/preferences.component';
 import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
+import { GameComponent } from './views/game/game.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
     LoginComponent,
     PreferencesComponent,
     ScoreboardComponent,
-    OrderBy
+    OrderBy,
+    GameComponent
   ],
   imports: [
     BrowserModule,
