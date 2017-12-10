@@ -122,6 +122,7 @@ export class QuestionsComponent /*implements OnInit*/ {
   startTimer() {
     this.timer = 10;
     this.questionAnswered = false;
+    document.getElementById('game').style.visibility = 'visible';
     const obj = this;
     this.timerID = setInterval(function(){
         if (obj.timer <= 0 || obj.questionAnswered) {

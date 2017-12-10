@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
-import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
-import { PreferencesComponent } from './views/preferences/preferences.component';
+import { PreferencesComponent } from './views/Preferences/preferences.component';
 import { GameComponent } from './views/game/game.component';
 import { RegisterComponent } from './views/register/register.component';
 

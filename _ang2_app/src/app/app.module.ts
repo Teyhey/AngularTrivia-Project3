@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { OrderBy } from './orderBy.pipe';
 import { LoginComponent } from './views/login/login.component';
-import { PreferencesComponent } from './views/preferences/preferences.component';
-import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
+import { PreferencesComponent } from './views/Preferences/preferences.component';
 import { GameComponent } from './views/game/game.component';
 import { RegisterComponent } from './views/register/register.component';
+import { OpenTriviaWebModule } from './modules/opentdb/triviaplayer.module'
 
 @NgModule({
   declarations: [
@@ -19,17 +19,13 @@ import { RegisterComponent } from './views/register/register.component';
     LoginComponent,
     RegisterComponent,
     PreferencesComponent,
-<<<<<<< HEAD
-    ScoreboardComponent,
     OrderBy,
     GameComponent,
-=======
-    OrderBy,
->>>>>>> origin/master
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    OpenTriviaWebModule,
     CollapseModule.forRoot()
   ],
   providers: [],

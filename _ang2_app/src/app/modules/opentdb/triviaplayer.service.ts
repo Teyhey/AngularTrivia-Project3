@@ -20,6 +20,7 @@ export class TriviaWebService {
     .map(res => res.json());
   }
 
+
   // getScores
   // /api/score/top
 }
