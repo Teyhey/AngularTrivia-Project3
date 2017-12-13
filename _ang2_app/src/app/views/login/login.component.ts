@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from './services';
+// import { AuthenticationService } from '../services/index';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(
-    private AuthenticationService
+    // private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -22,10 +22,9 @@ export class LoginComponent implements OnInit {
    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-login(){
-  this.loading = true;
-  //this.AuthenticationService.login(this.model.username, this.model.password)
-      
+login() {
+ // this.loading = true;
+ // this.authenticationService.login(this.model.username, this.model.password);
 }
 
 
