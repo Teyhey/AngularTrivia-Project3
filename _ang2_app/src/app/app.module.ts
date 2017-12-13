@@ -9,15 +9,13 @@ import { OrderBy } from './orderBy.pipe';
 import { LoginComponent } from './views/login/login.component';
 import { PreferencesComponent } from './views/Preferences/preferences.component';
 import { GameComponent } from './views/game/game.component';
-import { RegisterComponent } from './views/register/register.component';
-import { OpenTriviaWebModule } from './modules/opentdb/triviaplayer.module'
+import { OpenTriviaWebModule } from './modules/opentdb/triviaplayer.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
     PreferencesComponent,
     OrderBy,
     GameComponent,
