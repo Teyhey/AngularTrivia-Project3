@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $: any;
 
 @Component({
   selector: 'app-game',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+	$(".center-logo").hide();
+	$(".jumbotron").hide();
+	$("html").css("background-image", )
+  }
 
   ngOnInit() {
   }

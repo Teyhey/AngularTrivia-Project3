@@ -5,6 +5,10 @@ but the elements in them stay relatively positioned inside the container
 the same way.
 */
 
+body {
+	background-image: none;
+}
+
 .myDynamic {
     
 }
