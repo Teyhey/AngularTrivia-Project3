@@ -174,9 +174,11 @@ export class QuestionsComponent /*implements OnInit*/ {
   }
 
   alertPop() {
-    var x = document.getElementById("snackbar")
-    x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    const x = document.getElementById('snackbar');
+    if (this.viewanswertimer = 0) {
+    x.className = 'show';
+    setTimeout(function(){ x.className = x.className.replace('show', ''); }, 3000);
+    }
 }
 
   onAnswerclick(spot) {
