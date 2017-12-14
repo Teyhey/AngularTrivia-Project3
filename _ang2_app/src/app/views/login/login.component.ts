@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TriviaWebService } from '../../modules/opentdb/triviaplayer.service';
+import { Globals } from '../../globals';
 // import { AuthenticationService } from '../services/index';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   returnUrl: string;
 
-  constructor(private triviaservice: TriviaWebService) {}
+  constructor(private globals: Globals, private triviaservice: TriviaWebService) {}
   /*
   constructor(
      private authenticationService: AuthenticationService

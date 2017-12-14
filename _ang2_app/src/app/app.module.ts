@@ -10,6 +10,8 @@ import { LoginComponent } from './views/login/login.component';
 import { PreferencesComponent } from './views/Preferences/preferences.component';
 import { GameComponent } from './views/game/game.component';
 import { OpenTriviaWebModule } from './modules/opentdb/triviaplayer.module';
+import { Globals } from './globals';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,10 @@ import { OpenTriviaWebModule } from './modules/opentdb/triviaplayer.module';
     BrowserModule,
     AppRoutingModule,
     OpenTriviaWebModule,
+	FormsModule,
     CollapseModule.forRoot()
   ],
-  providers: [],
+  providers: [Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
