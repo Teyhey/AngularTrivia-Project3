@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -18,6 +19,17 @@ export class TriviaWebService {
     this.fullUrl = this.baseUri + 'api/score/top';
     return this. http.get(this.fullUrl)
     .map(res => res.json());
+  }
+
+  login(username: string, password: string) {
+    this.fullUrl = this.baseUri + 'api/auth/login';
+    return this.http.post(this.fullUrl, JSON.stringify({ user: username, password: password }))
+    .map((response: Response) => {
+     const user = response.json();
+     if (user && user.token) {
+       localStorage.setItem('currentUser', JSON.stringify(user));
+      }
+    });
   }
 
 
