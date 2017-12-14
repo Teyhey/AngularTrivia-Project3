@@ -23,11 +23,13 @@ export class TriviaWebService {
 
   login(username: string, password: string) {
     this.fullUrl = this.baseUri + 'api/auth/login';
-    return this.http.post(this.fullUrl, JSON.stringify({ user: username, password: password }))
+    return this.http.post(this.fullUrl, {user: username, password: password})
     .map((response: Response) => {
      const user = response.json();
+     console.log(response.json());
      if (user && user.token) {
        localStorage.setItem('currentUser', JSON.stringify(user));
+       console.log('WORKED');
       }
     });
   }

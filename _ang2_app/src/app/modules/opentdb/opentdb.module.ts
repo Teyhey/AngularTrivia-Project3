@@ -10,12 +10,14 @@ import { CategoriesComponent } from './views/categories/categories.component';
 import { CategoryPopupComponent } from './views/categories/category-popup/category-popup.component';
 import { OpenTDBService } from './opentdb.service';
 import { ScoreboardComponent } from './views/Scoreboard/scoreboard.component';
+import { TestLoginComponent } from './views/testlogin/testlogin.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'categories'},
   {path: 'categories', component: CategoriesComponent},
   {path: 'questions', component: QuestionsComponent},
   {path: 'scoreboard', component: ScoreboardComponent},
+  {path: 'testlogin', component: TestLoginComponent},
 ];
 
 export function openTDBfactory(http: Http) {
@@ -28,6 +30,7 @@ export function openTDBfactory(http: Http) {
     QuestionsComponent,
     CategoryPopupComponent,
     ScoreboardComponent,
+    TestLoginComponent,
   ],
   imports: [
     CommonModule,
