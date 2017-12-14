@@ -1,6 +1,9 @@
+//import { randomBytes } from "crypto";
+
 const express = require("express");
 
 const Score = require("../models/Score.js");
+const User = require("../models/Score.js");
 
 const apiRouter = express.Router();
 
@@ -50,6 +53,39 @@ apiRouter.post("/submitScore", function (req, res) {
     }else{
       res.sendStatus(200);
     }
+  });
+});
+
+apiRouter.post("/auth/login", function (req, res) {
+  //var u = new User();
+  var un = req.body.username;
+  var pw = req.body.password;
+
+  //check database to see if user exists
+  User.findOne({username: un, password: pw}, function (err, foundUser) {
+    if (err) {
+      res.sendStatus(500);
+    }
+    else if (foundUser) {
+      // res.status(200);
+      // res.setHeader('Content-Type', 'application/json');
+      // res.json.token = "A token."
+      // res.json.user = foundUser;
+
+      res.json({
+        response: 'a POST request for CREATING answers',
+        question: req.params.qID,
+        body: req.body
+      });
+    }
+  });
+
+  router.post('/:qID/answers', (req, res) => {
+    res.json({
+      response: 'a POST request for CREATING answers',
+      question: req.params.qID,
+      body: req.body
+    });
   });
 });
 
