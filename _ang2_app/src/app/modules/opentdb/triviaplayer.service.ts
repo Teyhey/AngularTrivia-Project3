@@ -23,7 +23,7 @@ export class TriviaWebService {
 
   login(username: string, password: string) {
     this.fullUrl = this.baseUri + 'api/auth/login';
-    return this.http.post(this.fullUrl, JSON.stringify({username, password}))
+    return this.http.post(this.fullUrl, JSON.stringify({username: 'test', password: 'test'}), {headers: this.headers})
     .map((response: Response) => {
      const user = response.json();
      console.log(response.json());
