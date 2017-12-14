@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { User } from '../services/user/index';
 import { PreferencesComponent } from './preferences.component';
 
 describe('PreferencesComponent', () => {
