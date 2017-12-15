@@ -28,8 +28,9 @@ import { TriviaWebService } from '../../triviaplayer.service';
       data => {
         console.log('I guess the data sent?');
       },
-        error => alert(error),
-        () => console.log('Finished')
+        error => {alert(JSON.parse(error._body).error);console.log(JSON.parse(error._body).error)},
+        () => console.log('Finished'),
+        
     );
    // this.loading = true;
    // this.authenticationService.login(this.model.username, this.model.password);
