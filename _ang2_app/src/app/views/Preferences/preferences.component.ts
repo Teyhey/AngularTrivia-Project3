@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TriviaWebService } from '../../modules/opentdb/triviaplayer.service';
+
 
 @Component({
   selector: 'app-preferences',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreferencesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private triviaservice: TriviaWebService) { }
 
   ngOnInit() {
+  }
+
+  logoutClick() {
+    console.log('I click logout');
+    this.triviaservice.logout();
   }
 
 }
