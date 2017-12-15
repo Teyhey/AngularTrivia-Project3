@@ -11,9 +11,6 @@
     <option value="hard">Hard</option>
   </select>
 
-  <div id="snackbar">Timer is up!</div>
-
-
   <select id="catDrop" [(ngModel)]='category'>
     <option value='0'>Any</option>
     <option value='9'>General Knowledge</option>
@@ -50,11 +47,21 @@
   </select>
     <br>
     <br>
-    <button class="button-3 button1" id = "startGame" (click)="onTestGet(); startTimer(); clearPreviousData();">Begin Game</button>
+    <button class="button-3 button1" id = "startGame" 
+    (click)="onTestGet(); startTimer(); move(); clearPreviousData();">Begin Game</button>
     <br>
 
+
+    
     <div id = "game" class = "playgame">
-        <p>{{timer}}</p>
+        <div class="w3-container">
+            <div class="w3-light-grey">
+              <div id="myBar" class="w3-container w3-green" style="height:24px;width:0%">
+              </div>
+            </div>
+            <p id="myP"> <span id="demo">{{timer}}</span> seconds</p>
+        
+
         <br>
         <div style="font-weight: bold;">Question :</div>
         <div [innerHTML]="getQuestion"></div>
@@ -74,6 +81,10 @@
         <br>
     </div>
     
+        
+
+
+
 <!--
 <div id="snackbar">Chosen Difficulty: {{difficulty}}</div>
 <button class="button-2 button2" (click)="setDifficulty('')" (click)="alertPop()" onclick="myFunction()"> Any difficulty </button>

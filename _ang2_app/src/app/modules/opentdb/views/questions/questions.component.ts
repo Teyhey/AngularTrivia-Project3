@@ -295,4 +295,27 @@ ngOnInit() {
       }
       this.showAnswer = '--- ' + this.getAnswer + ' ---';
   }
+
+  move() {
+    const elem = document.getElementById("myBar");
+    const width = 0;
+    const id = setInterval(frame, 50);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        document.getElementById("myP").className = "w3-text-red w3-animate-opacity";
+        document.getElementById("myP").innerHTML = "Times up!";
+      } else {
+        width++; 
+        elem.style.width = width + '%';
+        var num = width * 1 / 10;
+        num = num.toFixed(0);
+        document.getElementById("demo").innerHTML = num;
+      }
+
+    }
+
+
+
+
 }
