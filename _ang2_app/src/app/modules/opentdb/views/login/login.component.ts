@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { TriviaWebService } from '../../triviaplayer.service';
 
 
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -13,7 +14,7 @@ import { TriviaWebService } from '../../triviaplayer.service';
     loading = false;
     returnUrl: string;
 
-    constructor(private triviaservice: TriviaWebService) {}
+    constructor(private triviaservice: TriviaWebService, private router: Router) {}
 
     ngOnInit() {
      //  this.AuthenticationService.logout();
@@ -27,6 +28,9 @@ import { TriviaWebService } from '../../triviaplayer.service';
     .subscribe(
       data => {
         console.log('I guess the data sent?');
+        if (localStorage.getItem('userToken')) {
+          this.router.navigate(['preferences']);
+      }
       },
         error => {alert(JSON.parse(error._body).error); console.log(JSON.parse(error._body).error)},
         () => console.log('Finished'),

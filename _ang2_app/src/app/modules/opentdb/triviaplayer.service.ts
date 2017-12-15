@@ -27,8 +27,11 @@ export class TriviaWebService {
     .map((response: Response) => {
      const user = response.json();
      console.log(response.json());
+     console.log(user.user['username']);
      if (user && user.token) {
        localStorage.setItem('userToken', user.token);
+       localStorage.setItem('username', user.user['username']);
+       alert('You are now logged in');
        console.log('WORKED');
        console.log(user.token);
        console.log((localStorage.getItem('userToken')));
@@ -53,15 +56,12 @@ export class TriviaWebService {
       {headers: new Headers({'content-Type': 'application/json', 'Authorization': (localStorage.getItem('userToken'))})})
     .map((response: Response) => {
      console.log('SCORE SENT');
+     alert('Your score has been submitted!');
     });
   }
 
   logout() {
-    // remove user from local storage to log user out
     localStorage.removeItem('userToken');
+    localStorage.removeItem('username');
   }
-
-
-  // getScores
-  // /api/score/top
 }

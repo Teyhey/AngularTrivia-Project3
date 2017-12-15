@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TriviaWebService } from '../../modules/opentdb/triviaplayer.service';
 import { Globals } from '../../globals';
+import { Router } from '@angular/router';
+
 declare var $: any;
 
 
@@ -11,7 +13,9 @@ declare var $: any;
 })
 export class PreferencesComponent implements OnInit {
 
-  constructor(private triviaservice: TriviaWebService, private globals: Globals) { }
+  constructor(private triviaservice: TriviaWebService, private globals: Globals, private router: Router) { }
+
+  username = (localStorage.getItem('username'));
 
   ngOnInit() {
 	$(".center-logo").show();
@@ -21,6 +25,11 @@ export class PreferencesComponent implements OnInit {
   logoutClick() {
     console.log('I click logout');
     this.triviaservice.logout();
+  }
+
+  reroute() {
+    this.router.navigate(['home']);
+    alert('You have logged out');
   }
 
 }
