@@ -1,12 +1,82 @@
 	<link rel="stylesheet" href="assets/css/my-bootstrap-div.css">
 	<body>
-	<div class="my-bootstrap-div">
-	<div class="container-fluid">
-	<img class="background" src="assets/images/cityBG.png">
-	<video class="background">video format not support</video>	
-	<div class="row">
+	<div class="themescreen">
+	<img class="bgImage" src="assets/images/theme_screen.png">
+	</div>
+	<div class="w3-container">		
+          <div id="id01" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+              <div class="w3-center"><br>
+                <img src="https://www.w3schools.com/w3css/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+              </div>
+        
+              <form class="container" action="/action_page.php">
+                <div class="section">
+				  <h2>Game Type :</h2>
+				  <p>
+				  <input class="w3-radio" type="radio" name="gender" value="male" checked>
+				  <label>Singleplayer</label></p>
+				  <p>
+				  <input class="w3-radio" type="radio" name="gender" value="female">
+				  <label>Multiplayer Team</label></p>
+				  <p>
+				  <input class="w3-radio" type="radio" name="gender" value="" disabled>
+				  <label>Multiplayer Competitive</label></p>
+                </div>
+				<div class="section">
+				  <h2>Destination : (Time Limit)</h2>
+				  <p>
+				  <input class="w3-radio" type="radio" name="gender" value="male" checked>
+				  <label>Downtown (5:00 minutes)</label></p>
+				  <p>
+				  <input class="w3-radio" type="radio" name="gender" value="female">
+				  <label>Way Downtown (10:00 minutes)</label></p>
+				  <p>
+				  <input class="w3-radio" type="radio" name="gender" value="" disabled>
+				  <label>Silber Surfer Tour (15:00 minutes)</label></p>
+                </div>
+				<div class="section">
+				  <h2> Question Set : Pick 3</h2>
+					<div id="set1" class="w3-dropdown-hover w3-right">
+					  <button class="w3-button">Dropdown</button>
+					  <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+						<a href="#" class="w3-bar-item w3-button">Link 1</a>
+						<a href="#" class="w3-bar-item w3-button">Link 2</a>
+						<a href="#" class="w3-bar-item w3-button">Link 3</a>
+					  </div>
+					</div>
+					<div id="set2" class="w3-dropdown-hover w3-right">
+					  <button class="w3-button">Dropdown</button>
+					  <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+						<a href="#" class="w3-bar-item w3-button">Link 1</a>
+						<a href="#" class="w3-bar-item w3-button">Link 2</a>
+						<a href="#" class="w3-bar-item w3-button">Link 3</a>
+					  </div>
+					</div>
+					<div id="set3" class="w3-dropdown-hover w3-right">
+					  <button class="w3-button">Dropdown</button>
+					  <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+						<a href="#" class="w3-bar-item w3-button">Link 1</a>
+						<a href="#" class="w3-bar-item w3-button">Link 2</a>
+						<a href="#" class="w3-bar-item w3-button">Link 3</a>
+					  </div>
+					</div>
+                </div>
+              </form>
+        
+            </div>
+          </div>
+        </div>
+	<div class="game">
+	<div class="backgroundContainer">
+	<img class="background bgImage" src="assets/images/cityBG.png">
+	<video class="background bgVideo">video format not supported</video>
+	</div>
+	<div class="my-bootstrap-div">	
+	<div class="container-fluid">	
+		<div class="row">
 		<div class="col-xs-6">
-            <img class="rearView img-responsive center-block" src="assets/images/rearViewSmall.png">
+            <img class="rearView img-responsive center-block" src="assets/images/rearSmallFull3.png">
 			<div class="speech center-block">
 				<img class="speechBubble" src="assets/images/speechBubbleTrim.png">
 				<p class="speechText">
@@ -27,18 +97,15 @@
 					<img class="fareCounter" src="assets/images/fareCounterSmall.png">
 				</div>
 		</div>
-	</div>
+		</div>
 	<div class="row">
-		<div class="text panel question-panel myBlock">
-            <p>
-                <span class="questionTitleText">Current Question :</span>
-				<span class="questionText">\nA question...?</span>
-            </p>
+		<div class="turnText text panel player-panel myBlock">
+            {{globals.currentPlayer}}'s turn.
         </div>
 	</div>
 	<div class="row">
 		<div class="answerText text panel answer-panel myBlock">
-                <div class="funkyradio funkyradio funkyradio-default">
+                <div class="funkyradio funkyradio-default">
                     <input type="radio" name="radio" id="radio1" />
                     <label for="radio1">First Answer</label>
                 </div>
@@ -55,12 +122,8 @@
                     <label for="radio4">Fourth Answer</label>
                 </div>
         </div>
-	</div>
-	<div class="row">
-		<div class="turnText text panel player-panel myBlock">
-            Player A's turn
-        </div>
-	</div>
+	</div>	
+	</div>	
 	</div>
 	</div>
 	</body>

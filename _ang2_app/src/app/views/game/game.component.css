@@ -5,12 +5,47 @@ but the elements in them stay relatively positioned inside the container
 the same way.
 */
 
-body {
-	background-image: none;
-}
 
 .myDynamic {
     
+}
+
+.themeScreen {
+	z-index: 1;
+	position: fixed;
+	top: 53px;
+}
+
+.themeScreen * {
+	position: fixed;
+	top: 53px;
+	width: 100%;
+}
+
+.backgroundContainer {
+	z-index: 1;
+	position: fixed;
+	top: 53px;
+}
+
+.backgroundContainer * {
+	position: fixed;
+	top: 53px;
+	width: 100%;
+}
+
+.bgVideo {
+	z-index: 2;
+}
+
+.bgImage {
+	z-index: 1;
+}
+
+.my-bootstrap-div {
+	position: absolute;
+	top: 0px;
+	z-index: 2;
 }
 
 .text {
@@ -34,20 +69,13 @@ body {
 	text-align: center;
 }
 
-.background {
-	position: fixed;
-	z-index: -1;
-	height: 100%;
-	width: 100%;
-}
-
 .rearView {
 }
 
 .speech {
 	position: sticky;
-	top: 0;
-	opacity: 0.75;
+	margin-top: 25px;
+	opacity: 1;
 	height: 200px;
 	z-index: 2;
 }
@@ -76,14 +104,14 @@ body {
 .moneyAmount {
     color: lightgreen;
     font-family: 'Orbitron';    
-    font-size: 450%;
+    font-size: 335%;
     text-align: right;
-    font-stretch: ultra-expanded;
+	transform: scale(1, 1.4);
 
     position: absolute;
     z-index: 3;    
     right: 18%;
-    bottom: 15%;
+    bottom: 22%;
 }
 
 .strikes {
@@ -98,15 +126,15 @@ body {
 }
 
 .strike3 {
-    right: 26%;
+    right: 25%;
 }
 
 .strike2 {
-    right: 44%;
+    right: 43%;
 }
 
 .strike1 {
-    right: 61%;
+    right: 60%;
 }
 
 .mapContainer {
@@ -179,8 +207,8 @@ body {
 }
 
 .funkyradio div {
-            clear: both;
-            overflow: hidden;
+	clear: both;
+	overflow: hidden;
 }
 
 .funkyradio label {
@@ -200,7 +228,6 @@ body {
 	position: relative;
 	line-height: 2.5em;
 	text-indent: 3.25em;
-	margin-top: 2em;
 	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;

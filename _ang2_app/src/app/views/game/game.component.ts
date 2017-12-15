@@ -8,13 +8,16 @@ declare var $: any;
 })
 export class GameComponent implements OnInit {
 
-  constructor() {
-	$(".center-logo").hide();
-	$(".jumbotron").hide();
-	$("html").css("background-image", )
+  constructor(private globals: Globals) {
   }
 
   ngOnInit() {
+	$(".center-logo").hide();
+	$(".jumbotron").hide();
+	
+	if (globals.loggedIn != true) {
+		
+	}
   }
 
 }
