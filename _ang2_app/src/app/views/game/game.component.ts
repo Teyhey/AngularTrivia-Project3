@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Globals } from '../../globals';
 declare var $: any;
 
 @Component({
@@ -8,6 +9,14 @@ declare var $: any;
 })
 export class GameComponent implements OnInit {
 
+	private questionSet1: string;
+	private questionSet2: string;
+	private questionSet3: string;
+	
+	private strikeCount: number = 0;
+	private moneyAmount: number = 0.00;
+	
+	
   constructor(private globals: Globals) {
   }
 
@@ -15,7 +24,7 @@ export class GameComponent implements OnInit {
 	$(".center-logo").hide();
 	$(".jumbotron").hide();
 	
-	if (globals.loggedIn != true) {
+	if (this.globals.loggedIn != true) {
 		
 	}
   }

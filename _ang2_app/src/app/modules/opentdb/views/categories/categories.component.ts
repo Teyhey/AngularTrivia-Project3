@@ -3,6 +3,8 @@ import { OpenTDBService } from '../../opentdb.service';
 import { Component, OnInit } from '@angular/core';
 import {CategoryPopupComponent} from './category-popup/category-popup.component';
 import { OrderBy } from "../../../../orderBy.pipe";
+import { Globals } from '../../../../globals';
+declare var $: any;
 
 @Component({
   selector: 'app-categories',
@@ -16,7 +18,7 @@ export class CategoriesComponent {
   totalMed: number;
   totalHard: number;
 
-   constructor (private httpService: OpenTDBService) {}
+   constructor (private httpService: OpenTDBService, private globals: Globals) {}
    
    ngOnInit() {
 		$(".center-logo").show();

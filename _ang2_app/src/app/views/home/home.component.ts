@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Globals } from '../../globals';
+declare var $: any;
 
 @Component({
   selector: 'app-home',

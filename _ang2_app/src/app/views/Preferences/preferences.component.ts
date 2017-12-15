@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TriviaWebService } from '../../modules/opentdb/triviaplayer.service';
+import { Globals } from '../../globals';
+declare var $: any;
 
 
 @Component({
@@ -9,7 +11,7 @@ import { TriviaWebService } from '../../modules/opentdb/triviaplayer.service';
 })
 export class PreferencesComponent implements OnInit {
 
-  constructor(private triviaservice: TriviaWebService) { }
+  constructor(private triviaservice: TriviaWebService, private globals: Globals) { }
 
   ngOnInit() {
 	$(".center-logo").show();

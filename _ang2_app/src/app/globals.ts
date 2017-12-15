@@ -7,4 +7,5 @@ export class Globals {
   username: string = 'Mysterious Stanger';
   gamemode: number = 0;
   music: boolean = false;
+  loggedIn: boolean = false;
 }

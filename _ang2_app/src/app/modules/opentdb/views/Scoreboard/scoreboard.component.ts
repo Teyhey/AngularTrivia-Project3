@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'ng2-bootstrap-modal';
 //import { Component } from '@angular/core';
 import { TriviaWebService } from '../../triviaplayer.service';
+import { Globals } from '../../../../globals';
+declare var $: any;
 
 @Component({
   selector: 'app-scoreboard',
@@ -15,7 +17,7 @@ export class ScoreboardComponent implements OnInit {
   userarray = ['why'];
   scorearray = ['test'];
 
-  constructor(private triviaservice: TriviaWebService) {}
+  constructor(private triviaservice: TriviaWebService, private globals: Globals) {}
 
   ngOnInit() {
 	$(".center-logo").show();

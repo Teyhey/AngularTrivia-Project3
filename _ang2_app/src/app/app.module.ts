@@ -28,13 +28,7 @@ declare var $: any;
 	FormsModule,
     CollapseModule.forRoot()
   ],
-<<<<<<< HEAD
-  providers: [Globals],
-=======
-  providers: [
-    AuthGuard,
-  ],
->>>>>>> origin/master
+  providers: [Globals, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

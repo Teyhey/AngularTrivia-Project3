@@ -1,8 +1,9 @@
-
 import { DialogService } from 'ng2-bootstrap-modal';
 import { OpenTDBService } from '../../opentdb.service';
 import { Component } from '@angular/core';
 import { TriviaWebService } from '../../triviaplayer.service';
+import { Globals } from '../../../../globals';
+declare var $: any;
 
 @Component({
   selector: 'app-questions',
@@ -36,7 +37,7 @@ export class QuestionsComponent /*implements OnInit*/ {
   private _difficultydrop: string;
 
   // Note, Booleans are not called, multiple choice only for this test, so can safely call the array of inccorect for 0,1,2
-  constructor (private httpService: OpenTDBService, private triviaService: TriviaWebService) {}
+  constructor (private httpService: OpenTDBService, private triviaService: TriviaWebService, private globals: Globals) {}
 
 ngOnInit() {
 	$(".center-logo").show();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TriviaWebService } from '../../modules/opentdb/triviaplayer.service';
 import { Globals } from '../../globals';
 // import { AuthenticationService } from '../services/index';
+declare var $: any;
 
 @Component({
   selector: 'app-login',
@@ -16,11 +17,14 @@ export class LoginComponent implements OnInit {
   constructor(private globals: Globals, private triviaservice: TriviaWebService) {}
   /*
   constructor(
-     private authenticationService: AuthenticationService
+     private authenticationService: AuthenticationService,
+	 private globals: Globals
   ) { }
   */
 
   ngOnInit() {
+		$(".center-logo").show();
+		$(".jumbotron").show();
    //  this.AuthenticationService.logout();
    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
