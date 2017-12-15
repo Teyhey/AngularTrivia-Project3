@@ -49,10 +49,9 @@ export class TriviaWebService {
     console.log('submit Score was called');
     this.fullUrl = this.baseUri + 'api/score/submit';
     return this.http.post(this.fullUrl,
-      JSON.stringify({score: score, category: cat, difficulty: diff, numQuestions: numQ,
-        Authorization: (localStorage.getItem('userToken'))}), {headers: this.headers})
+      JSON.stringify({score: score, category: cat, difficulty: diff, numQuestions: numQ}),
+      {headers: new Headers({'content-Type': 'application/json', 'Authorization': (localStorage.getItem('userToken'))})})
     .map((response: Response) => {
-     console.log(response.json());
      console.log('SCORE SENT');
     });
   }
