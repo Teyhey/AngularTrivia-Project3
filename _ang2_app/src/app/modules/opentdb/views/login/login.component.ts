@@ -4,11 +4,11 @@ import { TriviaWebService } from '../../triviaplayer.service';
 
 
 @Component({
-    selector: 'app-testlogin',
-    templateUrl: './testlogin.component.html',
-    styleUrls: ['./testlogin.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
   })
-  export class TestLoginComponent implements OnInit {
+  export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
@@ -28,8 +28,8 @@ import { TriviaWebService } from '../../triviaplayer.service';
       data => {
         console.log('I guess the data sent?');
       },
-        error => alert(error),
-        () => console.log('Finished')
+        error => {alert(JSON.parse(error._body).error); console.log(JSON.parse(error._body).error)},
+        () => console.log('Finished'),
     );
    // this.loading = true;
    // this.authenticationService.login(this.model.username, this.model.password);

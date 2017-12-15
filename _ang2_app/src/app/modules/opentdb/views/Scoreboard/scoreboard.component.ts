@@ -23,13 +23,15 @@ export class ScoreboardComponent implements OnInit {
 	
     this.triviaservice.getTopScores().subscribe(
       data => {
-        this.usertest = (data['result'][0]['username']);
-        this.scoretest = (data['result'][0]['score']);
-        for (let i = 0; i < (data['result']).length; i++) {
-          this.userarray[i] = (data['result'][i]['username']);
-        }
-        for (let i = 0; i < (data['result']).length; i++) {
-          this.scorearray[i] = (data['result'][i]['score']);
+        if (data['result'][0] != null) {
+          this.usertest = (data['result'][0]['username']);
+          this.scoretest = (data['result'][0]['score']);
+          for (let i = 0; i < (data['result']).length; i++) {
+            this.userarray[i] = (data['result'][i]['username']);
+          }
+          for (let i = 0; i < (data['result']).length; i++) {
+            this.scorearray[i] = (data['result'][i]['score']);
+          }
         }
       },
       error => alert(error),

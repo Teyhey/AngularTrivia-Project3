@@ -2,6 +2,7 @@
 import { DialogService } from 'ng2-bootstrap-modal';
 import { OpenTDBService } from '../../opentdb.service';
 import { Component } from '@angular/core';
+import { TriviaWebService } from '../../triviaplayer.service';
 
 @Component({
   selector: 'app-questions',
@@ -35,13 +36,13 @@ export class QuestionsComponent /*implements OnInit*/ {
   private _difficultydrop: string;
 
   // Note, Booleans are not called, multiple choice only for this test, so can safely call the array of inccorect for 0,1,2
-  constructor (private httpService: OpenTDBService) {}
-  
-  ngOnInit() {
+  constructor (private httpService: OpenTDBService, private triviaService: TriviaWebService) {}
+
+ngOnInit() {
 	$(".center-logo").show();
 	$(".jumbotron").show();
   }
-  
+
   onTestGet() {
      this.httpService.getQuiz(this.category, this.difficulty).subscribe(
           data => {
@@ -125,6 +126,87 @@ export class QuestionsComponent /*implements OnInit*/ {
      document.getElementById('totalQuestionDrop').style.visibility = 'hidden';
   }
 
+  submitScore() {
+      console.log('called');
+      this.triviaService.submitScore(this.Score, this.convertCategory(this.category),
+      this.convertDiff(this.difficulty), this.totalquestions).subscribe(
+        data => {
+          console.log('I guess the data sent?');
+        },
+          error => {alert(error);
+            console.log(error);
+        },
+          () => console.log('Finished'),
+      );
+  }
+  convertDiff(diff: string) {
+    switch (diff) {
+        case 'easy':
+        return 'Easy';
+        case 'medium':
+        return 'Medium';
+        case 'hard':
+        return 'Hard';
+        default:
+        return 'Any';
+    }
+  }
+
+  convertCategory(catnum: number) {
+      switch (catnum) {
+          case 9:
+          return 'General Knowledge';
+          case 10:
+          return 'Books';
+          case 11:
+          return 'Film';
+          case 12:
+          return 'Music';
+          case 13:
+          return 'Musicals & Theatres';
+          case 14:
+          return 'Television';
+          case 15:
+          return 'Video Games';
+          case 16:
+          return 'Board Games';
+          case 17:
+          return 'Science & Nature';
+          case 18:
+          return 'Computers';
+          case 19:
+          return 'Mathematics';
+          case 20:
+          return 'Mythology';
+          case 21:
+          return 'Sports';
+          case 22:
+          return 'Geography';
+          case 23:
+          return 'History';
+          case 24:
+          return 'Politics';
+          case 25:
+          return 'Art';
+          case 26:
+          return 'Celebrities';
+          case 27:
+          return 'Animals';
+          case 28:
+          return 'Vehicles';
+          case 29:
+          return 'Comics';
+          case 30:
+          return 'Gadgets';
+          case 31:
+          return 'Japanese Anime & Manga';
+          case 32:
+          return 'Cartoon & Animations';
+          default:
+          return 'Any';
+  }
+}
+
   startTimer() {
     this.timer = 10;
     this.questionAnswered = false;
@@ -134,6 +216,7 @@ export class QuestionsComponent /*implements OnInit*/ {
         if (obj.timer <= 0 || obj.questionAnswered) {
             if (obj.questionsCompleted === obj.totalquestions ) {
                 clearInterval(obj.timerID);
+                obj.submitScore();
                 document.getElementById('startGame').style.visibility = 'visible';
                 document.getElementById('difficultyDrop').style.visibility = 'visible';
                 document.getElementById('catDrop').style.visibility = 'visible';
@@ -211,30 +294,4 @@ export class QuestionsComponent /*implements OnInit*/ {
       }
       this.showAnswer = '--- ' + this.getAnswer + ' ---';
   }
-
-
-
-/*
-  questions: any[] = [ ];
-  attributes: any[] = [ ];
-  selectedQuestion = -1;
-  constructor(private _apiSvc: OpenTDBService, private _dialogService: DialogService) {
-    // _apiSvc.getQuestions(1, 10, 'medium', ).subscribe(x => {
-    //   this.questions = x.questions.question;
-    //   this.attributes = x.questions['@attr'];
-    //  });
-  }
-
-  showDetail(index, track) {
-    console.log(index);
-    console.log(track.name);
-    if (this.selectedQuestion === index){
-      this.selectedQuestion = -1;
-    } else {
-      this.selectedQuestion = index;
-    }
-  }
-    ngOnInit() {
-  }
-*/
 }
