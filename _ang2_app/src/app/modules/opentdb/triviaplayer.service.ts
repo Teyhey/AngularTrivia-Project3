@@ -46,6 +46,7 @@ export class TriviaWebService {
   }
 
   submitScore(score: number, cat: string, diff: string, numQ: number) {
+    console.log('submit Score was called');
     this.fullUrl = this.baseUri + 'api/score/submit';
     return this.http.post(this.fullUrl,
       JSON.stringify({score: score, category: cat, difficulty: diff, numQuestions: numQ,

@@ -121,6 +121,7 @@ export class QuestionsComponent /*implements OnInit*/ {
   }
 
   submitScore() {
+      console.log('called');
       this.triviaService.submitScore(this.Score, this.convertCategory(this.category),
       this.convertDiff(this.difficulty), this.totalquestions);
   }
@@ -142,25 +143,25 @@ export class QuestionsComponent /*implements OnInit*/ {
           case 9:
           return 'General Knowledge';
           case 10:
-          return 'Entertainment: Books';
+          return 'Books';
           case 11:
-          return 'Entertainment: Film';
+          return 'Film';
           case 12:
-          return 'Entertainment: Music';
+          return 'Music';
           case 13:
-          return 'Entertainment: Musicals & Theatres';
+          return 'Musicals & Theatres';
           case 14:
-          return 'Entertainment: Television';
+          return 'Television';
           case 15:
-          return 'Entertainment: Video Games';
+          return 'Video Games';
           case 16:
-          return 'Entertainment: Board Games';
+          return 'Board Games';
           case 17:
           return 'Science & Nature';
           case 18:
-          return 'Science: Computers';
+          return 'Computers';
           case 19:
-          return 'Science: Mathematics';
+          return 'Mathematics';
           case 20:
           return 'Mythology';
           case 21:
@@ -180,13 +181,13 @@ export class QuestionsComponent /*implements OnInit*/ {
           case 28:
           return 'Vehicles';
           case 29:
-          return 'Entertainment: Comics';
+          return 'Comics';
           case 30:
-          return 'Science: Gadgets';
+          return 'Gadgets';
           case 31:
-          return 'Entertainment: Japanese Anime & Manga';
+          return 'Japanese Anime & Manga';
           case 32:
-          return 'Entertainment: Cartoon & Animations';
+          return 'Cartoon & Animations';
           default:
           return 'Any';
   }
@@ -201,6 +202,7 @@ export class QuestionsComponent /*implements OnInit*/ {
         if (obj.timer <= 0 || obj.questionAnswered) {
             if (obj.questionsCompleted === obj.totalquestions ) {
                 clearInterval(obj.timerID);
+                obj.submitScore();
                 document.getElementById('startGame').style.visibility = 'visible';
                 document.getElementById('difficultyDrop').style.visibility = 'visible';
                 document.getElementById('catDrop').style.visibility = 'visible';
@@ -278,30 +280,4 @@ export class QuestionsComponent /*implements OnInit*/ {
       }
       this.showAnswer = '--- ' + this.getAnswer + ' ---';
   }
-
-
-
-/*
-  questions: any[] = [ ];
-  attributes: any[] = [ ];
-  selectedQuestion = -1;
-  constructor(private _apiSvc: OpenTDBService, private _dialogService: DialogService) {
-    // _apiSvc.getQuestions(1, 10, 'medium', ).subscribe(x => {
-    //   this.questions = x.questions.question;
-    //   this.attributes = x.questions['@attr'];
-    //  });
-  }
-
-  showDetail(index, track) {
-    console.log(index);
-    console.log(track.name);
-    if (this.selectedQuestion === index){
-      this.selectedQuestion = -1;
-    } else {
-      this.selectedQuestion = index;
-    }
-  }
-    ngOnInit() {
-  }
-*/
 }

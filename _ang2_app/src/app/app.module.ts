@@ -10,6 +10,7 @@ import { LoginComponent } from './views/login/login.component';
 import { PreferencesComponent } from './views/Preferences/preferences.component';
 import { GameComponent } from './views/game/game.component';
 import { OpenTriviaWebModule } from './modules/opentdb/triviaplayer.module';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { OpenTriviaWebModule } from './modules/opentdb/triviaplayer.module';
     OpenTriviaWebModule,
     CollapseModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
