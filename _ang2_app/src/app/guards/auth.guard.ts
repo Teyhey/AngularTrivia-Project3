@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
         }
 
         // not logged in so redirect to login page with the return url
-        this.router.navigate(['/opentdb/testlogin']);
+        this.router.navigate(['/opentdb/login']);
         return false;
     }
 }
