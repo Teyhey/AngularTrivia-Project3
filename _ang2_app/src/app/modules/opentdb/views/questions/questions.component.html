@@ -4,14 +4,15 @@
   <p>Choose your category and difficulty with the drop down bars</p>
   <p>Click begin when you're ready</p>
   
-  <select id="difficultyDrop" [(ngModel)]='difficulty'>
+  
+  <select id="difficultyDrop" class="button"[(ngModel)]='difficulty'>
     <option value="">Any</option>
     <option value="easy">Easy</option>
     <option value="medium">Medium</option>
     <option value="hard">Hard</option>
   </select>
 
-  <select id="catDrop" [(ngModel)]='category'>
+  <select id="catDrop" class="button" [(ngModel)]='category'>
     <option value='0'>Any</option>
     <option value='9'>General Knowledge</option>
     <option value='10'>Entertainment: Books</option>
@@ -38,7 +39,7 @@
     <option value='27'>Animals</option>
     <option value='28'>Vehicles</option>
   </select>
-  <select id="totalQuestionDrop" [(ngModel)]='totalquestions'>
+  <select id="totalQuestionDrop" class="button" [(ngModel)]='totalquestions'>
     <option value='10'>10 Questions</option>
     <option value='15'>15 Questions</option>
     <option value='20'>20 Questions</option>

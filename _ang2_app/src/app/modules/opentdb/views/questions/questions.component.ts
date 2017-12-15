@@ -298,17 +298,18 @@ ngOnInit() {
 
   move() {
     const elem = document.getElementById("myBar");
+    const obj = this;
     const width = 0;
-    const id = setInterval(frame, 50);
+    const id = setInterval(frame, 80);
     function frame() {
       if (width >= 100) {
         clearInterval(id);
         document.getElementById("myP").className = "w3-text-red w3-animate-opacity";
         document.getElementById("myP").innerHTML = "Times up!";
       } else {
-        width++; 
+        width++;
         elem.style.width = width + '%';
-        var num = width * 1 / 10;
+        const num = width * 1 / 10;
         num = num.toFixed(0);
         document.getElementById("demo").innerHTML = num;
       }
