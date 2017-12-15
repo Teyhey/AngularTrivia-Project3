@@ -17,6 +17,11 @@ export class CategoriesComponent {
   totalHard: number;
 
    constructor (private httpService: OpenTDBService) {}
+   
+   ngOnInit() {
+		$(".center-logo").show();
+		$(".jumbotron").show();
+   }
 
   setCategory(category: number) {
     this.category = category;

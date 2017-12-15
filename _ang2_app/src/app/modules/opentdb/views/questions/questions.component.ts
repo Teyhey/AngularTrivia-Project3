@@ -36,6 +36,12 @@ export class QuestionsComponent /*implements OnInit*/ {
 
   // Note, Booleans are not called, multiple choice only for this test, so can safely call the array of inccorect for 0,1,2
   constructor (private httpService: OpenTDBService) {}
+  
+  ngOnInit() {
+	$(".center-logo").show();
+	$(".jumbotron").show();
+  }
+  
   onTestGet() {
      this.httpService.getQuiz(this.category, this.difficulty).subscribe(
           data => {

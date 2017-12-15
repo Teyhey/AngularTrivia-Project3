@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+	$(".center-logo").show();
+	$(".jumbotron").show();
   }
 
 }

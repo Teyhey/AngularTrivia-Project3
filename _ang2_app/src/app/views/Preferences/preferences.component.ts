@@ -10,6 +10,8 @@ export class PreferencesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+	$(".center-logo").show();
+	$(".jumbotron").show();
   }
 
 }

@@ -18,6 +18,9 @@ export class ScoreboardComponent implements OnInit {
   constructor(private triviaservice: TriviaWebService) {}
 
   ngOnInit() {
+	$(".center-logo").show();
+	$(".jumbotron").show();
+	
     this.triviaservice.getTopScores().subscribe(
       data => {
         this.usertest = (data['result'][0]['username']);
