@@ -24,19 +24,19 @@
 </head>
 
 <body>
-        
-        <h2></h2>
-        
-        <div class="card" align="middle">
-          <img src="https://www.w3schools.com/w3css/img_avatar4.png" alt="Avatar" style="width:25%" align="middle">
-          <div class="container" align="middle">
-           <!-- <h4><b>{User.username}</b></h4> -->
+    <h2></h2>
+    <div class="card" align="middle">
+        <img src="https://www.w3schools.com/w3css/img_avatar4.png" alt="Avatar" style="width:25%" align="middle">
+        <div class="container" align="middle">
+            <h4><b>{{username}}</b></h4>
             <p>Account Preferences</p> 
-          </div>
         </div>
-        <p>Hello {{username}}!</p>
-        <button (click)= "logoutClick(); reroute()" class="logout">Logout</button>
-        
-        </body>
-        </html> 
+    </div>
+    <p>Hello {{username}}!</p>
+    <button (click)= "logoutClick(); reroute()" class="logout">Logout</button>
+    <br>
+    <button (click)= "iWantFriends()" class="friends">GIVE ME MY FRIENDS</button>
+    <p>{{friends}}</p>
+</body>
+</html> 
         

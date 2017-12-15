@@ -16,6 +16,7 @@ export class PreferencesComponent implements OnInit {
   constructor(private triviaservice: TriviaWebService, private globals: Globals, private router: Router) { }
 
   username = (localStorage.getItem('username'));
+  friends;
 
   ngOnInit() {
 	$(".center-logo").show();
@@ -30,6 +31,18 @@ export class PreferencesComponent implements OnInit {
   reroute() {
     this.router.navigate(['home']);
     alert('You have logged out');
+  }
+
+  iWantFriends() {
+    this.triviaservice.getFriends().subscribe(
+      data => {
+        this.friends = data;
+      },
+      error => alert(error),
+      () => console.log('Finished')
+
+    );
+
   }
 
 }

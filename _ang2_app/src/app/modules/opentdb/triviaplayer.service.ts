@@ -17,7 +17,7 @@ export class TriviaWebService {
 
   getTopScores() {
     this.fullUrl = this.baseUri + 'api/score/top';
-    return this. http.get(this.fullUrl)
+    return this. http.get(this.fullUrl, JSON.stringify({category: 'All', difficulty: 'All', numQuestions: 10}))
     .map(res => res.json());
   }
 
@@ -58,6 +58,35 @@ export class TriviaWebService {
      console.log('SCORE SENT');
      alert('Your score has been submitted!');
     });
+  }
+
+  getFriends() {
+    console.log('Getting friends');
+    this.fullUrl = this.baseUri + 'api/friend/getfriends';
+    return this. http.get(this.fullUrl,
+      {headers: new Headers({'content-Type': 'application/json', 'Authorization': (localStorage.getItem('userToken'))})})
+    .map(res => res.json());
+  }
+
+  getFriendsRequests() {
+    console.log('Getting friend requests');
+    this.fullUrl = this.baseUri + 'api/friend/getpendingrequests';
+    return this. http.get(this.fullUrl,
+      {headers: new Headers({'content-Type': 'application/json', 'Authorization': (localStorage.getItem('userToken'))})})
+    .map(res => res.json());
+  }
+
+  sendRequest(friendtobe: string) {
+    console.log('Getting friend requests');
+    this.fullUrl = this.baseUri + 'api/auth/sendRequest';
+    return this.http.post(this.fullUrl, JSON.stringify({recipient: friendtobe}),
+    {headers: new Headers({'content-Type': 'application/json', 'Authorization': (localStorage.getItem('userToken'))})})
+    .map((response: Response) => {
+     console.log(response.json());
+     console.log('Request Send');
+     alert('Request to ' + friendtobe + ' sent');
+    });
+
   }
 
   logout() {
