@@ -3,10 +3,10 @@ form {
 }
 
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 75%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
+    display: block;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
@@ -15,9 +15,10 @@ button {
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
+    display: block;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 75%;
 }
 
 button2 {
@@ -26,8 +27,9 @@ button2 {
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
+    display: block;
     cursor: pointer;
-    width: 100%;
+    width: 75%;
 }
 
 
