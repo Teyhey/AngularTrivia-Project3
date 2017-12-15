@@ -18,6 +18,8 @@ export class PreferencesComponent implements OnInit {
   model: any = {};
   username = (localStorage.getItem('username'));
   friends;
+  requestsent;
+  requestpending;
 
   ngOnInit() {
 	$(".center-logo").show();
@@ -45,13 +47,29 @@ export class PreferencesComponent implements OnInit {
   }
 
   sendFriendRequest() {
-    this.triviaservice.sendRequest(this.model.newFriend).subscribe(
+    console.log(this.model.friendR);
+    this.triviaservice.sendRequest(this.model.friendR).subscribe(
       data => {
         console.log('Friend request pending');
       },
         error => {
-          alert(JSON.parse(error._body).error);
-          console.log(JSON.parse(error._body).error); },
+          alert(error);
+          console.log(error); },
+        () => console.log('Finished'),
+    );
+  }
+
+  showRequests() {
+    this.triviaservice.getFriendsRequests().subscribe(
+      data => {
+        console.log('Friend request pending');
+        this.requestpending = data['pendingReceived'];
+        this.requestsent = data['pendingSent'];
+
+      },
+        error => {
+          alert(error);
+          console.log(error); },
         () => console.log('Finished'),
     );
   }

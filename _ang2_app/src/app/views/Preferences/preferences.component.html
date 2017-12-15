@@ -37,6 +37,20 @@
     <br>
     <button (click)= "iWantFriends()" class="friends">GIVE ME MY FRIENDS</button>
     <p>{{friends}}</p>
+    <form name="form" (ngSubmit)="f.form.valid && sendFriendRequest()" #f="ngForm" novalidate>
+        <div class="container" [ngClass]="{ 'has-error': f.submitted && !friendR.valid }">
+            <label for="friendR">Friend Request</label>
+            <input type="text" class="form-control" name="friendR" placeholder="Enter Friend User" [(ngModel)]="model.friendR" #friendR="ngModel" required/>
+            <div *ngIf="f.submitted && !friendR.valid" class="help-block">Username is required</div>
+        </div>
+        <div class="container">
+            <button type="button submit" class="btn btn-primary">Be my Friend</button>
+        </div>
+    </form>
+    <button (click)= "showRequests()" class="friends">SHOW MY REQUESTS</button>
+    <p>{{requestpending}}</p>
+    <br>
+    <p>{{requestsent}}</p>
 </body>
 </html> 
         
