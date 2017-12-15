@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +11,8 @@ import { GameComponent } from './views/game/game.component';
 import { OpenTriviaWebModule } from './modules/opentdb/triviaplayer.module';
 import { Globals } from './globals';
 import { FormsModule } from '@angular/forms';
+
+declare var $: any;
 
 @NgModule({
   declarations: [
