@@ -78,15 +78,13 @@ export class TriviaWebService {
 
   sendRequest(friendtobe: string) {
     console.log('Getting friend requests');
-    this.fullUrl = this.baseUri + 'api/auth/sendRequest';
+    this.fullUrl = this.baseUri + 'api/friend/sendRequest';
     return this.http.post(this.fullUrl, JSON.stringify({recipient: friendtobe}),
     {headers: new Headers({'content-Type': 'application/json', 'Authorization': (localStorage.getItem('userToken'))})})
     .map((response: Response) => {
-     console.log(response.json());
-     console.log('Request Send');
+     console.log('Request Sent');
      alert('Request to ' + friendtobe + ' sent');
     });
-
   }
 
   logout() {
