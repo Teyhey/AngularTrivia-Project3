@@ -15,6 +15,7 @@ export class PreferencesComponent implements OnInit {
 
   constructor(private triviaservice: TriviaWebService, private globals: Globals, private router: Router) { }
 
+  model: any = {};
   username = (localStorage.getItem('username'));
   friends;
 
@@ -36,13 +37,23 @@ export class PreferencesComponent implements OnInit {
   iWantFriends() {
     this.triviaservice.getFriends().subscribe(
       data => {
-        this.friends = data;
+        this.friends = data['result'];
       },
       error => alert(error),
       () => console.log('Finished')
-
     );
+  }
 
+  sendFriendRequest() {
+    this.triviaservice.sendRequest(this.model.newFriend).subscribe(
+      data => {
+        console.log('Friend request pending');
+      },
+        error => {
+          alert(JSON.parse(error._body).error);
+          console.log(JSON.parse(error._body).error); },
+        () => console.log('Finished'),
+    );
   }
 
 }

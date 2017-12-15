@@ -26,7 +26,48 @@
             </style>
     </head>
     <body>
-          <p align="center">View top scores, use the drop down to specify which scores you'd like to see</p>   
+          <p align="center">View top scores, use the drop down to specify which scores you'd like to see</p>  
+          <select id="difficultyDrop" (change)="setDifficulty($event.target)">
+              <option value="Any">Any</option>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+            <select id="catDrop" (change)="setCat($event.target)">
+              <option value='Any'>Any</option>
+              <option value='General Knowledge'>General Knowledge</option>
+              <option value='Books'>Entertainment: Books</option>
+              <option value='Film'>Entertainment: Film</option>
+              <option value='Music'>Entertainment: Music</option>
+              <option value='Musicals & Theatres'>Entertainment: Musicals & Theatres</option>
+              <option value='Television'>Entertainment: Television</option>
+              <option value='Video Games'>Entertainment: Video Games</option>
+              <option value='Board Games'>Entertainment: Board Games</option>
+              <option value='Japanese Anime & Manga'>Entertainment: Japanese Anime & Manga</option>
+              <option value='Cartoon & Animations'>Entertainment: Cartoon & Animations</option>
+              <option value='Comics'>Entertainment: Comics</option>
+              <option value='Science & Nature'>Science & Nature</option>
+              <option value='Computers'>Science: Computers</option>
+              <option value='Mathematics'>Science: Mathematics</option>
+              <option value='Gadgets'>Science: Gadgets</option>
+              <option value='Mythology'>Mythology</option>
+              <option value='Sports'>Sports</option>
+              <option value='Geography'>Geography</option>
+              <option value='History'>History</option>
+              <option value='Politics'>Politics</option>
+              <option value='Art'>Art</option>
+              <option value='Celebrities'>Celebrities</option>
+              <option value='Animals'>Animals</option>
+              <option value='Vehicles'>Vehicles</option>
+            </select>
+            <select id="totalQuestionDrop" (change)="setQuestions($event.target)">
+              <option value='10'>10 Questions</option>
+              <option value='15'>15 Questions</option>
+              <option value='20'>20 Questions</option>
+              <option value='25'>25 Questions</option>
+              <option value='30'>30 Questions</option>
+            </select>
+          
           <table id="scores">
         <tr>
           <th>Place</th>

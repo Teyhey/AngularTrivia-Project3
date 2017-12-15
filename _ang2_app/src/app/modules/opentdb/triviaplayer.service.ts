@@ -15,9 +15,9 @@ export class TriviaWebService {
     this.baseUri = baseAPIUri;
   }
 
-  getTopScores() {
-    this.fullUrl = this.baseUri + 'api/score/top';
-    return this. http.get(this.fullUrl, JSON.stringify({category: 'All', difficulty: 'All', numQuestions: 10}))
+  getTopScores(cat, diff, numQ) {
+    this.fullUrl = this.baseUri + 'api/score/top?category=' + cat + '&difficulty=' + diff + '&numQuestions=' + numQ;
+    return this. http.get(this.fullUrl)
     .map(res => res.json());
   }
 
