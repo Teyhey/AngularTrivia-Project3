@@ -123,7 +123,15 @@ export class QuestionsComponent /*implements OnInit*/ {
   submitScore() {
       console.log('called');
       this.triviaService.submitScore(this.Score, this.convertCategory(this.category),
-      this.convertDiff(this.difficulty), this.totalquestions);
+      this.convertDiff(this.difficulty), this.totalquestions).subscribe(
+        data => {
+          console.log('I guess the data sent?');
+        },
+          error => {alert(error);
+            console.log(error);
+        },
+          () => console.log('Finished'),
+      );
   }
   convertDiff(diff: string) {
     switch (diff) {
