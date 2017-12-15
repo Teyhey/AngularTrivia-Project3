@@ -4,11 +4,11 @@ import { TriviaWebService } from '../../triviaplayer.service';
 
 
 @Component({
-    selector: 'app-testlogin',
-    templateUrl: './testlogin.component.html',
-    styleUrls: ['./testlogin.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
   })
-  export class TestLoginComponent implements OnInit {
+  export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
