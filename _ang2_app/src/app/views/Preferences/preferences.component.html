@@ -19,22 +19,42 @@
             padding: 2px 16px;
             display: block;
         }
+
+        #scores {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            #scores td, #scores th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+            
+            #scores tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #scores tr:hover {background-color: #ddd;}
+            
+            #scores th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
         </style>
 
 </head>
 
 <body>
     <h2></h2>
-    <div class="card" align="middle">
+    <div class="w3-hover-shadow button-3" align="middle">
         <img src="https://www.w3schools.com/w3css/img_avatar4.png" alt="Avatar" style="width:25%" align="middle">
         <div class="container" align="middle">
-            <h4><b>{{username}}</b></h4>
-            <p>Account Preferences</p> 
+            <h4><b>User: {{username}}</b></h4>
+            <p>Hello {{username}}!</p> 
         </div>
     </div>
-   
-   
-    <p>Hello {{username}}!</p>
 
     <button (click)= "logoutClick(); reroute()" class="logout w3-hover-shadow button">Logout</button>
     <br>
