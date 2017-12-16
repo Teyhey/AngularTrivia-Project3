@@ -121,10 +121,10 @@ ngOnInit() {
   clearPreviousData() {
      this.questionsCompleted = 0;
      this.Score = 0;
-     document.getElementById('startGame').style.visibility = 'hidden';
-     document.getElementById('difficultyDrop').style.visibility = 'hidden';
-     document.getElementById('catDrop').style.visibility = 'hidden';
-     document.getElementById('totalQuestionDrop').style.visibility = 'hidden';
+     $(document.getElementById('startGame')).hide();
+     $(document.getElementById('difficultyDrop')).hide();
+     $(document.getElementById('catDrop')).hide();
+     $(document.getElementById('totalQuestionDrop')).hide();
   }
 
   submitScore() {
@@ -218,10 +218,10 @@ ngOnInit() {
             if (obj.questionsCompleted === obj.totalquestions ) {
                 clearInterval(obj.timerID);
                 obj.submitScore();
-                document.getElementById('startGame').style.visibility = 'visible';
-                document.getElementById('difficultyDrop').style.visibility = 'visible';
-                document.getElementById('catDrop').style.visibility = 'visible';
-                document.getElementById('totalQuestionDrop').style.visibility = 'visible';
+                $(document.getElementById('startGame')).show();
+                $(document.getElementById('difficultyDrop')).show();
+                $(document.getElementById('catDrop')).show();
+                $(document.getElementById('totalQuestionDrop')).show();
             } else {
                 clearInterval(obj.timerID);
                 if (!obj.questionAnswered) {
