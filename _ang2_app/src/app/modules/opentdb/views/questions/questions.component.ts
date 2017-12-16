@@ -26,7 +26,7 @@ export class QuestionsComponent /*implements OnInit*/ {
   Score: number;
   questionsCompleted: number;
   questionAnswered = false;
-  category = 0;
+  category = '0';
   difficulty = '';
   timer = 10;
   timerID;
@@ -153,55 +153,55 @@ ngOnInit() {
     }
   }
 
-  convertCategory(catnum: number) {
+  convertCategory(catnum: string) {
       switch (catnum) {
-          case 9:
+          case '9':
           return 'General Knowledge';
-          case 10:
+          case '10':
           return 'Books';
-          case 11:
+          case '11':
           return 'Film';
-          case 12:
+          case '12':
           return 'Music';
-          case 13:
+          case '13':
           return 'Musicals & Theatres';
-          case 14:
+          case '14':
           return 'Television';
-          case 15:
+          case '15':
           return 'Video Games';
-          case 16:
+          case '16':
           return 'Board Games';
-          case 17:
+          case '17':
           return 'Science & Nature';
-          case 18:
+          case '18':
           return 'Computers';
-          case 19:
+          case '19':
           return 'Mathematics';
-          case 20:
+          case '20':
           return 'Mythology';
-          case 21:
+          case '21':
           return 'Sports';
-          case 22:
+          case '22':
           return 'Geography';
-          case 23:
+          case '23':
           return 'History';
-          case 24:
+          case '24':
           return 'Politics';
-          case 25:
+          case '25':
           return 'Art';
-          case 26:
+          case '26':
           return 'Celebrities';
-          case 27:
+          case '27':
           return 'Animals';
-          case 28:
+          case '28':
           return 'Vehicles';
-          case 29:
+          case '29':
           return 'Comics';
-          case 30:
+          case '30':
           return 'Gadgets';
-          case 31:
+          case '31':
           return 'Japanese Anime & Manga';
-          case 32:
+          case '32':
           return 'Cartoon & Animations';
           default:
           return 'Any';
@@ -255,7 +255,7 @@ ngOnInit() {
       this.difficulty = difficulty;
   }
 
-  setCategory(category: number) {
+  setCategory(category) {
       this.category = category;
   }
 
