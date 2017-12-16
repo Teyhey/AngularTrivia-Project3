@@ -276,49 +276,25 @@ ngOnInit() {
           if (spot === '1') {
               if (this.getAnswer === this.Spot1) {
                   this.Score += this.timer * 10;
-                  this.move();
               }
           } else if (spot === '2') {
               if (this.getAnswer === this.Spot2) {
                   this.Score += this.timer * 10;
-                  this.move();
               }
           } else if (spot === '3') {
               if (this.getAnswer === this.Spot3) {
                  this.Score += this.timer * 10;
-                 this.move();
               }
           } else if (spot === '4') {
               if (this.getAnswer === this.Spot4) {
                  this.Score += this.timer * 10;
-                 this.move();
               }
           }
           this.questionsCompleted += 1;
           this.questionAnswered = true;
       }
       this.showAnswer = '--- ' + this.getAnswer + ' ---';
-      this.move();
   }
-
-  move() {
-    var elem = document.getElementById("myBar");
-    const obj = this;
-    var width = this.timer;
-    var id = setInterval(frame, 820);
-    function frame() {
-      if (width <= 10) {
-        clearInterval(id);
-      } else {
-        width++;
-        elem.style.width = width + '';
-        document.getElementById("demo").innerHTML = width * 1;
-      }
-    }
-  }
-
-    }
-
 
 
 

@@ -49,20 +49,15 @@
     <br>
     <br>
     <button class="button-3 button1" id = "startGame" 
-    (click)="onTestGet(); startTimer(); move(); clearPreviousData();">Begin Game</button>
+    (click)="onTestGet(); startTimer(); clearPreviousData();">Begin Game</button>
     <br>
 
 
     
     <div id = "game" class = "playgame">
-        <div class="w3-container">
-            <div class="w3-light-grey">
-              <div id="myBar" class="w3-container w3-green" style="height:24px;width:0%">
-              </div>
-            </div>
-            <p id="myP"> <span id="demo">{{timer}}</span> seconds</p>
-        
-
+        <div class="w3-green w3-hover-shadow w3-padding-64 w3-center">
+      <p>{{timer}} Seconds</p>
+    </div>
         <br>
         <div style="font-weight: bold;">Question :</div>
         <div [innerHTML]="getQuestion"></div>
