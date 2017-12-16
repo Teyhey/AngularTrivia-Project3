@@ -47,10 +47,59 @@
             <button type="button submit" class="btn btn-primary">Be my Friend</button>
         </div>
     </form>
-    <button (click)= "showRequests()" class="friends">SHOW MY REQUESTS</button>
-    <p>{{requestpending}}</p>
     <br>
     <p>{{requestsent}}</p>
+
+    <table id="Friends">
+            <tr>
+                <th>Number</th>
+              <th>Friends</th>
+            </tr>
+            <tr>
+                <td>{{friendcount[0]}}</td> 
+              <td>{{friendview[0]}}</td> 
+            </tr>
+            <tr>
+                <td>{{friendcount[1]}}</td>
+              <td>{{friendview[1]}}</td>
+            </tr>
+            <tr>
+                <td>{{friendcount[2]}}</td>
+                <td>{{friendview[2]}}</td>
+            </tr>
+            <tr>
+                <td>{{friendcount[3]}}</td>
+                <td>{{friendview[3]}}</td>
+            </tr>
+            <tr>
+                <td>{{friendcount[4]}}</td>
+                <td>{{friendview[4]}}</td>
+            </tr>
+            <tr>
+               <td>{{friendcount[5]}}</td>
+              <td>{{friendview[5]}}</td>
+            </tr>
+            <tr>
+                <td>{{friendcount[6]}}</td>
+              <td>{{friendview[6]}}</td>
+            </tr>
+            <tr>
+              <td>{{friendcount[7]}}</td>
+              <td>{{friendview[7]}}</td>
+            </tr>
+            <tr>
+                <td>{{friendcount[8]}}</td>
+              <td>{{friendview[8]}}</td>
+            </tr>
+            <tr>
+                <td>{{friendcount[9]}}</td>
+                <td>{{friendview[9]}}</td>
+            </tr>
+        </table>
+        <button (click)= "previousTenFriends()" class="friends">Previous Friends</button>
+        <button (click)= "nextTenFriends()" class="friends">Next Friends</button>
+
+
 </body>
 </html> 
         
