@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class OpenTDBService {
   baseUri: string;
-  baseCategory: number;
+  baseCategory: string;
   baseDifficulty: string;
   catUrl: string;
   quizUrl: string;
@@ -25,12 +25,12 @@ export class OpenTDBService {
         .map(res => res.json());
       }
 
-    getQuiz(baseCategory: number, baseDifficulty: string) {
+    getQuiz(baseCategory: string, baseDifficulty: string) {
       this.baseCategory = baseCategory;
       this.baseDifficulty = baseDifficulty;
        this.quizUrl = this.baseUri + 'api.php?' + 'amount=1';
        // id range for cats [9,32]
-       if (this.baseCategory >= 9 && this.baseCategory <= 32) {
+       if (Number(this.baseCategory) >= 9 && Number(this.baseCategory) <= 32) {
            this.quizUrl = this.quizUrl + '&category=' + this.baseCategory;
        }
        if (this.baseDifficulty !== '') {
