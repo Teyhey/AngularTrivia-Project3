@@ -310,8 +310,8 @@ ngOnInit() {
       if (width <= 10) {
         clearInterval(id);
       } else {
-        width++; 
-        elem.style.width = width + ''; 
+        width++;
+        elem.style.width = width + '';
         document.getElementById("demo").innerHTML = width * 1;
       }
     }
