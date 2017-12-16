@@ -32,10 +32,13 @@
             <p>Account Preferences</p> 
         </div>
     </div>
+   
+   
     <p>Hello {{username}}!</p>
-    <button (click)= "logoutClick(); reroute()" class="logout">Logout</button>
+
+    <button (click)= "logoutClick(); reroute()" class="logout w3-hover-shadow button">Logout</button>
     <br>
-    <button (click)= "iWantFriends()" class="friends">GIVE ME MY FRIENDS</button>
+    <button (click)= "iWantFriends()" class="friends w3-hover-shadow button">GIVE ME MY FRIENDS</button>
     <p>{{friends}}</p>
     <form name="form" (ngSubmit)="f.form.valid && sendFriendRequest()" #f="ngForm" novalidate>
         <div class="container" [ngClass]="{ 'has-error': f.submitted && !friendR.valid }">
@@ -44,13 +47,13 @@
             <div *ngIf="f.submitted && !friendR.valid" class="help-block">Username is required</div>
         </div>
         <div class="container">
-            <button type="button submit" class="btn btn-primary">Be my Friend</button>
+            <button type="button submit" class="btn btn-primary w3-hover-shadow button">Be my Friend</button>
         </div>
     </form>
     <br>
     <p>{{requestsent}}</p>
 
-    <table id="Friends">
+    <table id="scores">
             <tr>
                 <th>Number</th>
               <th>Friends</th>
@@ -96,8 +99,9 @@
                 <td>{{friendview[9]}}</td>
             </tr>
         </table>
-        <button (click)= "previousTenFriends()" class="friends">Previous Friends</button>
-        <button (click)= "nextTenFriends()" class="friends">Next Friends</button>
+
+        <button (click)= "previousTenFriends()" class="friends button w3-hover-shadow">Previous Friends</button>
+        <button (click)= "nextTenFriends()" class="friends button w3-hover-shadow">Next Friends</button>
 
 
 </body>
